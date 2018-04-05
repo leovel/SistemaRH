@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:viewmodel="clr-namespace:RH.Manager.ViewModel">
+
+    <DataTemplate x:Key="ToolboxItemTemplate">
+        <Grid Margin="0 1 1 0" Width="76" Height="100">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="42" />
+            </Grid.RowDefinitions>
+            <Viewbox VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="5 5 5 0">
+                <ContentPresenter Content="{Binding Shape}" Margin="5" IsHitTestVisible="False" />
+            </Viewbox>
+            <TextBlock Grid.Row="1" Text="{Binding Header}" TextWrapping="Wrap" Margin="5" FontSize="12"
+					TextAlignment="Center" FontFamily="Segoe UI Semibold" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        </Grid>
+    </DataTemplate>
+
+    <viewmodel:HierarchicalDataTemplate x:Key="ToolboxTemplate" ItemsSource="{Binding Items}"
+			ItemTemplate="{StaticResource ToolboxItemTemplate}">
+        <TextBlock Text="{Binding Header}" MinWidth="55" />
+    </viewmodel:HierarchicalDataTemplate>
+</ResourceDictionary>

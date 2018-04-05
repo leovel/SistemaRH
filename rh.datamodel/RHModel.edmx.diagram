@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e2e9e60074674a25b11992109ec63ca4" Name="RHDiagram" ZoomLevel="86" >
+        <EntityTypeShape EntityType="RHModel.Funcionario" Width="2" PointX="2" PointY="1.25" />
+        <EntityTypeShape EntityType="RHModel.ValorDoIndice" Width="2" PointX="9.375" PointY="1.25" FillColor="0, 64, 0" />
+        <EntityTypeShape EntityType="RHModel.Cargo" Width="2.375" PointX="6" PointY="1.25" FillColor="0, 64, 0" />
+        <EntityTypeShape EntityType="RHModel.Carreira" Width="2.375" PointX="6" PointY="4.5" FillColor="0, 64, 0" />
+        <AssociationConnector Association="RHModel.CargoValorDoIndice" />
+        <AssociationConnector Association="RHModel.CarreiraValorDoIndice" />
+        <EntityTypeShape EntityType="RHModel.AfectacaoSalarial" Width="1.875" PointX="9.25" PointY="6.125" FillColor="0, 64, 0" />
+        <EntityTypeShape EntityType="RHModel.AfectacaoDeFuncionario" Width="2.125" PointX="2.25" PointY="10.25" FillColor="0, 64, 0" />
+        <InheritanceConnector EntityType="RHModel.AfectacaoDeFuncionario" ManuallyRouted="true" >
+          <ConnectorPoint PointX="10.1875" PointY="8.4898893229166656" />
+          <ConnectorPoint PointX="10.1875" PointY="9.875" />
+          <ConnectorPoint PointX="8.8958333333333339" PointY="9.875" />
+          <ConnectorPoint PointX="8.7291666666666661" PointY="9.875" />
+          <ConnectorPoint PointX="8.3645833333333339" PointY="9.875" />
+          <ConnectorPoint PointX="8.1979166666666661" PointY="9.875" />
+          <ConnectorPoint PointX="5.8020808333333331" PointY="9.875" />
+          <ConnectorPoint PointX="5.6354141666666671" PointY="9.875" />
+          <ConnectorPoint PointX="5.3177108333333329" PointY="9.875" />
+          <ConnectorPoint PointX="5.1510441666666669" PointY="9.875" />
+          <ConnectorPoint PointX="4.9192695833333326" PointY="9.875" />
+          <ConnectorPoint PointX="4.7526029166666666" PointY="9.875" />
+          <ConnectorPoint PointX="3.8020833333333335" PointY="9.875" />
+          <ConnectorPoint PointX="3.6354166666666665" PointY="9.875" />
+          <ConnectorPoint PointX="3.3125" PointY="9.875" />
+          <ConnectorPoint PointX="3.3125" PointY="10.25" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="RHModel.AfectacaoDeCargo" Width="2.125" PointX="5.5" PointY="10.25" FillColor="0, 64, 0" />
+        <InheritanceConnector EntityType="RHModel.AfectacaoDeCargo" ManuallyRouted="true" >
+          <ConnectorPoint PointX="10.1875" PointY="8.4898893229166656" />
+          <ConnectorPoint PointX="10.1875" PointY="9.875" />
+          <ConnectorPoint PointX="8.8958333333333339" PointY="9.875" />
+          <ConnectorPoint PointX="8.7291666666666661" PointY="9.875" />
+          <ConnectorPoint PointX="8.3645833333333339" PointY="9.875" />
+          <ConnectorPoint PointX="8.1979166666666661" PointY="9.875" />
+          <ConnectorPoint PointX="6.5625" PointY="9.875" />
+          <ConnectorPoint PointX="6.5625" PointY="10.25" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="RHModel.AfectacaoDeCarreira" Width="1.75" PointX="10.875" PointY="10.375" FillColor="0, 64, 0" />
+        <InheritanceConnector EntityType="RHModel.AfectacaoDeCarreira" ManuallyRouted="true" >
+          <ConnectorPoint PointX="10.1875" PointY="8.4898893229166656" />
+          <ConnectorPoint PointX="10.1875" PointY="10.987257094946386" />
+          <ConnectorPoint PointX="10.875" PointY="10.987257094946386" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="RHModel.Pais" Width="1.5" PointX="17.125" PointY="6.375" FillColor="128, 64, 0" />
+        <EntityTypeShape EntityType="RHModel.Comuna" Width="1.5" PointX="17.125" PointY="14.125" FillColor="128, 64, 0" />
+        <EntityTypeShape EntityType="RHModel.Municipio" Width="1.5" PointX="17.125" PointY="11.5" FillColor="128, 64, 0" />
+        <EntityTypeShape EntityType="RHModel.Provincia" Width="1.5" PointX="17.125" PointY="8.875" FillColor="128, 64, 0" />
+        <AssociationConnector Association="RHModel.PaisProvincia" />
+        <AssociationConnector Association="RHModel.MunicipioComuna" />
+        <AssociationConnector Association="RHModel.ProvinciaMunicipio" />
+        <EntityTypeShape EntityType="RHModel.HabilitacaoLiteraria" Width="1.875" PointX="6.25" PointY="7.25" FillColor="0, 64, 0" />
+        <EntityTypeShape EntityType="RHModel.AfectacaoDeHabilitacaoLiteraria" Width="2.5" PointX="13.375" PointY="10.375" FillColor="0, 64, 0" />
+        <InheritanceConnector EntityType="RHModel.AfectacaoDeHabilitacaoLiteraria" ManuallyRouted="true" >
+          <ConnectorPoint PointX="10.1875" PointY="8.4898893229166656" />
+          <ConnectorPoint PointX="10.1875" PointY="9.8701552051788219" />
+          <ConnectorPoint PointX="13.885414166666665" PointY="9.8701552051788219" />
+          <ConnectorPoint PointX="14.052080833333333" PointY="9.8701552051788219" />
+          <ConnectorPoint PointX="14.625" PointY="9.8701552051788219" />
+          <ConnectorPoint PointX="14.625" PointY="10.375" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="RHModel.Direccao" Width="2" PointX="11.375" PointY="4.25" FillColor="64, 64, 64" />
+        <EntityTypeShape EntityType="RHModel.Departamento" Width="1.5" PointX="14.375" PointY="4.25" FillColor="64, 64, 64" />
+        <EntityTypeShape EntityType="RHModel.Seccao" Width="1.5" PointX="17.125" PointY="4.25" FillColor="64, 64, 64" />
+        <EntityTypeShape EntityType="RHModel.AreaDeTrabalho" Width="2" PointX="14.125" PointY="1.25" FillColor="64, 64, 64" />
+        <InheritanceConnector EntityType="RHModel.Direccao" />
+        <InheritanceConnector EntityType="RHModel.Departamento" />
+        <InheritanceConnector EntityType="RHModel.Seccao" />
+        <AssociationConnector Association="RHModel.FuncionarioCargo" />
+        <AssociationConnector Association="RHModel.FuncionarioCarreira" />
+        <AssociationConnector Association="RHModel.FuncionarioHabilitacaoLiteraria" />
+        <AssociationConnector Association="RHModel.FuncionarioAreaDeTrabalho" />
+        <AssociationConnector Association="RHModel.DireccaoDepartamento" />
+        <AssociationConnector Association="RHModel.DireccaoDireccao" />
+        <AssociationConnector Association="RHModel.DepartamentoSeccao" />
+        <EntityTypeShape EntityType="RHModel.Actividade" Width="2" PointX="4.5" PointY="12.125" />
+        <AssociationConnector Association="RHModel.ActividadeFuncionario" />
+        <AssociationConnector Association="RHModel.ActividadeCargo" />
+        <EntityTypeShape EntityType="RHModel.Actualizacao" Width="1.5" PointX="0.5" PointY="6.125" />
+        <AssociationConnector Association="RHModel.ActualizacaoFuncionario" />
+        <EntityTypeShape EntityType="RHModel.RegistoDiario" Width="1.5" PointX="10.5" PointY="12.5" />
+        <AssociationConnector Association="RHModel.RegistoDiarioFuncionario" />
+        <EntityTypeShape EntityType="RHModel.Salario" Width="1.875" PointX="13.75" PointY="12.875" />
+        <AssociationConnector Association="RHModel.AfectacaoDeFuncionarioFuncionario" />
+        <AssociationConnector Association="RHModel.AfectacaoDeCargoCargo" />
+        <AssociationConnector Association="RHModel.AfectacaoDeCarreiraCarreira" />
+        <AssociationConnector Association="RHModel.AfectacaoDeHabilitacaoLiterariaHabilitacaoLiteraria" />
+        <EntityTypeShape EntityType="RHModel.Falta" Width="2" PointX="1.875" PointY="14" />
+        <InheritanceConnector EntityType="RHModel.Falta" />
+        <EntityTypeShape EntityType="RHModel.VencimentoSalarial" Width="2.125" PointX="13.5" PointY="15.625" />
+        <AssociationConnector Association="RHModel.VencimentoSalarialSalario" />
+        <AssociationConnector Association="RHModel.SalarioFuncionario" />
+        <EntityTypeShape EntityType="RHModel.Credencial" Width="1.5" PointX="7.875" PointY="15.125" />
+        <AssociationConnector Association="RHModel.CredencialFuncionario" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

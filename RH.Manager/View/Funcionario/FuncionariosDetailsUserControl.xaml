@@ -1,0 +1,458 @@
+﻿<UserControl x:Class="RH.Manager.View.FuncionariosDetailsUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:model="clr-namespace:RH.DataModel.Repository;assembly=RH.DataModel"
+             xmlns:views="clr-namespace:RH.Manager.View"
+             xmlns:viewmodel="clr-namespace:RH.Manager.ViewModel"
+             xmlns:helpers="clr-namespace:RH.Manager"
+             xmlns:theme="clr-namespace:RH.Manager.Appearance"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             x:Name="uc">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="afectacaoSalarialEditTemplate" >
+                <ScrollViewer Padding="0 6 5 0" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" BorderThickness="0">
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="DESIGNAÇÃO" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="5"  Text="{Binding Designacao, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="10,8"/>
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="DATA INICIAL" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <telerik:RadDatePicker Grid.Row="1" Grid.Column="1"  SelectedValue="{Binding DataInicial, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                           DisplayDateStart="1/1/2018" Margin="10,8"/>
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="DATA FINAL" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <telerik:RadDatePicker Grid.Row="2" Grid.Column="1"  SelectedValue="{Binding DataFinal, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                           DisplayDateStart="1/1/2018" Margin="10,8"/>
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="TIPO" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <telerik:RadComboBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Source={x:Static model:MainRepository.Instance}, Path=TiposDeAfectacaoSalarial}"
+                                                         SelectedValue="{Binding Tipo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEditable="False" Margin="10,8"/>
+                        <TextBlock Grid.Row="4" Grid.Column="0" Text="VALOR" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5" Text="{Binding Valor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,8"/>
+                        <telerik:RadWatermarkTextBox Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+                                                     Text="{Binding Descricao, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                     AcceptsReturn="True" WatermarkContent="DESCRIÇÃO..." VerticalContentAlignment="Top"
+                                                     MinLines="5" Margin="10,8" KeyDown="RadWatermarkTextBox_KeyDown"/>
+                    </Grid>
+                </ScrollViewer>
+            </DataTemplate>
+
+            <DataTemplate x:Key="afectacaoSalarialReadOnlyTemplate" >
+                <ScrollViewer Padding="0 6 5 0" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" BorderThickness="0">
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="84"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="DESIGNAÇÃO" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding Designacao}"  Margin="10,8"/>
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="DATA INICIAL" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding DataInicial, StringFormat=dd/MM/yyyy}" Margin="10,8"/>
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="DATA FINAL" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding DataFinal, StringFormat=dd/MM/yyyy}" Margin="10,8"/>
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="TIPO" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Row="3" Grid.Column="2" Text="{Binding Tipo}" Margin="10,8"/>
+                        <TextBlock Grid.Row="4" Grid.Column="0" Text="VALOR" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Row="4" Grid.Column="2" Text="{Binding Valor}" Margin="10,8"/>
+                        <TextBox Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3"
+                                 Style="{DynamicResource CustomTextBoxStyle}"
+                                 Text="{Binding Descricao}"
+                                 Visibility="{Binding Descricao, Converter={StaticResource StringToVisibiltyConverter}}"
+                                 VerticalAlignment="Top" Margin="10,8" Padding="0"/>
+                    </Grid>
+                </ScrollViewer>
+            </DataTemplate>
+            
+            <DataTemplate x:Key="funcionariosReadOnlyTemplate">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal">
+                        <Border BorderThickness="2" BorderBrush="{theme:CRMThemeResource Resource=AccentBrush}">
+                            <telerik:RadTransitionControl
+                                Content="{ Binding FotoURI, FallbackValue='pack://application:,,,/Resources/Images/defaultFuncionario.jpg',
+                                Converter={StaticResource ImageSourceToBitmapImageConverter}}" Duration="0:0:0.3" IsTabStop="False">
+                                <telerik:RadTransitionControl.Transition>
+                                    <telerik:MotionBlurredZoomTransition/>
+                                </telerik:RadTransitionControl.Transition>
+                                <telerik:RadTransitionControl.ContentTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding .}"  Width="108" Height="108" />
+                                    </DataTemplate>
+                                </telerik:RadTransitionControl.ContentTemplate>
+                            </telerik:RadTransitionControl>
+                        </Border>
+
+                        <StackPanel Margin="10 0 0 0" VerticalAlignment="Bottom">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding DadosPessoaisNome}" Style="{StaticResource Heading1}" Margin="0 0 0 5" />
+                            </StackPanel>
+                            <TextBlock Text="{Binding Position, Converter={StaticResource StringToUpperCaseConverter}}" FontSize="16" Margin="0 -4 0 0" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <ScrollViewer Grid.Row="1" Padding="0 6 5 0" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" BorderThickness="0">
+                        <Grid Margin="0 10 0 0" Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="184" />
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" MinHeight="28" />
+                                <RowDefinition Height="Auto" MinHeight="45" />
+                                <RowDefinition Height="Auto" MinHeight="28" />
+                                <RowDefinition Height="Auto" MinHeight="28" />
+                                <RowDefinition Height="Auto" MinHeight="28" />
+                                <RowDefinition Height="Auto" MinHeight="28" />
+                                <RowDefinition Height="Auto" MinHeight="45" />
+                                <RowDefinition Height="Auto" MinHeight="28" />
+                                <RowDefinition Height="Auto" MinHeight="28" />
+                                <RowDefinition Height="Auto" MinHeight="28" />
+                                <RowDefinition Height="Auto" MinHeight="28" />
+                                <RowDefinition Height="Auto" MinHeight="28" />
+                                <RowDefinition Height="Auto" MinHeight="28" />
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="AREA" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Top"  />
+                            <TextBlock Text="CARGO" Grid.Row="1" Style="{StaticResource Heading3}" HorizontalAlignment="Right"  VerticalAlignment="Top"/>
+                            <TextBlock Text="FUNÇÃO" Grid.Row="2" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Top"  />
+                            <TextBlock Text="CATEGORIA" Grid.Row="3" Style="{StaticResource Heading3}" HorizontalAlignment="Right"  VerticalAlignment="Top"  />
+                            <TextBlock Text="GRUPO DE PESSOAL" Grid.Row="4" Style="{StaticResource Heading3}" HorizontalAlignment="Right"  VerticalAlignment="Top" />
+                            <TextBlock Text="HABILITAÇÃO LITERÁRIA" Grid.Row="5" Style="{StaticResource Heading3}" HorizontalAlignment="Right"  VerticalAlignment="Top" />
+                            <TextBlock Text="NACIONALIDADE" Grid.Row="6" Style="{StaticResource Heading3}"  HorizontalAlignment="Right" VerticalAlignment="Top"  />
+                            <TextBlock Text="DATA DE NASCIMENTO" Grid.Row="7" Style="{StaticResource Heading3}" HorizontalAlignment="Right"  VerticalAlignment="Top"  />
+                            <TextBlock Text="ESTADO CIVIL" Grid.Row="8" Style="{StaticResource Heading3}"  HorizontalAlignment="Right"  VerticalAlignment="Top" />
+                            <TextBlock Text="TIPO DE IDENTIFICAÇÃO" Grid.Row="9" Style="{StaticResource Heading3}" HorizontalAlignment="Right"  VerticalAlignment="Top" />
+                            <TextBlock Text="NÚMERO DE IDENTIFICAÇÃO" Grid.Row="10" Style="{StaticResource Heading3}" HorizontalAlignment="Right"  VerticalAlignment="Top"  />
+                            <TextBlock Text="CORREIO ELECTÓRNICO" Grid.Row="11" Style="{StaticResource Heading3}" HorizontalAlignment="Right"  VerticalAlignment="Top"  />
+                            <TextBlock Text="TELEFONE" Grid.Row="12" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Top" />
+
+                            <TextBlock Text="{Binding Area.Nome}"  Margin="0 -8 0 0" FontSize="22" Grid.Column="2"  VerticalAlignment="Top" />
+                            <TextBlock Text="{Binding Cargo.Designacao}"  Grid.Column="2" Grid.Row="1"  VerticalAlignment="Top" />
+                            <TextBlock Text="{Binding Funcao}"  Grid.Column="2" Grid.Row="2"  VerticalAlignment="Top" />
+                            <TextBlock Text="{Binding Carreira.Categoria, Converter={StaticResource ObjectToUpperCaseStringConverter}}"  Grid.Column="2" Grid.Row="3" VerticalAlignment="Top" />
+                            <TextBlock Text="{Binding Carreira.GrupoDePessoal, Converter={StaticResource ObjectToUpperCaseStringConverter}}"  Grid.Column="2" Grid.Row="4" VerticalAlignment="Top" />
+                            <TextBlock Text="{Binding HabilitacaoLiteraria.Designacao, Converter={StaticResource ObjectToUpperCaseStringConverter}}" Grid.Column="2" Grid.Row="5" VerticalAlignment="Top" />
+                            <TextBlock Text="{Binding DadosPessoaisNacionalidade, Converter={StaticResource ObjectToUpperCaseStringConverter}}"  Grid.Column="2" Grid.Row="6" VerticalAlignment="Top" />
+                            <TextBlock Text="{Binding DadosPessoaisDataDeNascimento, StringFormat=dd/MM/yyyy}" FontSize="22" Grid.Column="2" Grid.Row="7" Margin="0 -8 0 0" VerticalAlignment="Top" />
+                            <TextBlock Text="{Binding DadosPessoaisEstadoCivil}" Grid.Column="2" Grid.Row="8" VerticalAlignment="Top"/>
+                            <TextBlock Text="{Binding DadosPessoaisIdentificacaoTipo}" Grid.Column="2" Grid.Row="9" VerticalAlignment="Top"/>
+                            <TextBlock Text="{Binding DadosPessoaisIdentificacaoNumero}" Grid.Column="2" Grid.Row="10" VerticalAlignment="Top" />
+                            <TextBlock Text="{Binding DadosPessoaisContactoEmail}"  Grid.Column="2" Grid.Row="11" VerticalAlignment="Top" />
+                            <TextBlock Text="{Binding DadosPessoaisContactoTelefone01}"  Grid.Column="2" Grid.Row="12" VerticalAlignment="Top" />
+                        </Grid>
+                    </ScrollViewer>
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="funcionariosEditTemplate" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Border BorderThickness="2" BorderBrush="{theme:CRMThemeResource Resource=AccentBrush}" HorizontalAlignment="Left">
+                        <telerik:RadButton BorderBrush="Transparent" Background="Transparent" Command="{Binding LoadImgCommand}"  Cursor ="Hand">
+                            <telerik:RadTransitionControl
+                                Content="{Binding FotoURI, TargetNullValue='pack://application:,,,/Resources/Images/defaultFuncionario.jpg',
+                                FallbackValue='pack://application:,,,/Resources/Images/defaultFuncionario.jpg',
+                                Converter={StaticResource ImageSourceToBitmapImageConverter}}" Duration="0:0:0.3" IsTabStop="False">
+                                <telerik:RadTransitionControl.Transition>
+                                    <telerik:MotionBlurredZoomTransition/>
+                                </telerik:RadTransitionControl.Transition>
+                                <telerik:RadTransitionControl.ContentTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding .}" Width="108" Height="108" />
+                                    </DataTemplate>
+                                </telerik:RadTransitionControl.ContentTemplate>
+                            </telerik:RadTransitionControl>
+                        </telerik:RadButton>
+                    </Border>
+                    <ScrollViewer Grid.Row="1" Padding="0 6 5 0" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" BorderThickness="0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <telerik:GroupBox Grid.Row="0" Header="DADOS PESSOAIS">
+                                <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Grid.Row="0" Grid.Column="0" Text="NOME DO FUNCIONÁRIO" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="5"  Text="{Binding DadosPessoaisNome, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="10,8"/>
+                                    <TextBlock Grid.Row="0" Grid.Column="6" Text="DATA DE NASCIMENTO" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <telerik:RadDatePicker Grid.Row="0" Grid.Column="7"  SelectedValue="{Binding DadosPessoaisDataDeNascimento, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                           DisplayDateStart="1/1/1950" Margin="10,8"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="0" Text="NOME DA MÃE" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"  Text="{Binding DadosPessoaisNomeDaMae, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="10,8"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="4" Text="NOME DO PAI" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <TextBox Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="3"  Text="{Binding DadosPessoaisNomeDoPai, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="10,8"/>
+                                    <TextBlock Grid.Row="2" Grid.Column="0" Text="GÊNERO" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <telerik:RadComboBox Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Source={x:Static model:MainRepository.Instance}, Path=Generos}"
+                                                         SelectedValue="{Binding DadosPessoaisGenero, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEditable="False" Margin="10,8"/>
+                                    <TextBlock Grid.Row="2" Grid.Column="2" Text="ESTADO CIVIL" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <telerik:RadComboBox Grid.Row="2" Grid.Column="3" ItemsSource="{Binding Source={x:Static model:MainRepository.Instance}, Path=EstadosCivis}"
+                                                         SelectedValue="{Binding DadosPessoaisEstadoCivil, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,8"/>
+                                    <TextBlock Grid.Row="2" Grid.Column="4" Text="NACIONALIDADE" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <telerik:RadComboBox Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="3"  ItemsSource="{Binding Source={x:Static model:MainRepository.Instance}, Path=Paises}"
+                                                         SelectedValuePath="Codigo" SelectedValue="{Binding DadosPessoaisCodigoNacionalidade, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                         DisplayMemberPath="Nacionalidade" IsEditable="False" IsFilteringEnabled="True"  Margin="10,8"/>
+                                    <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                        <Run FontWeight="Bold" Foreground="{StaticResource StrongBrush}" Text="NATURAL DE: "/>
+                                        <Run Text="PAÍS"/>
+                                    </TextBlock>
+                                    <telerik:RadComboBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Source={x:Static model:MainRepository.Instance}, Path=Paises}"
+                                                         SelectedValue="{Binding DadosPessoaisNaturalidadePais, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                         DisplayMemberPath="Nome" IsEditable="False" IsFilteringEnabled="True"  Margin="10,8" x:Name="comboPaisNatural"/>
+                                    <TextBlock Grid.Row="3" Grid.Column="2" Text="PROVÍNCIA" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <telerik:RadComboBox Grid.Row="3" Grid.Column="3" ItemsSource="{Binding ElementName=comboPaisNatural, Path=SelectedItem.Provincias}"
+                                                         SelectedValue="{Binding DadosPessoaisNaturalidadeProvincia, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                         DisplayMemberPath="Nome" IsEditable="False" IsFilteringEnabled="True"  Margin="10,8" x:Name="comboProvinciaNatural"/>
+                                    <TextBlock Grid.Row="3" Grid.Column="4" Text="MUNICÍPIO" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <telerik:RadComboBox Grid.Row="3" Grid.Column="5" ItemsSource="{Binding ElementName=comboProvinciaNatural, Path=SelectedItem.Municipios}"
+                                                         SelectedValue="{Binding DadosPessoaisNaturalidadeMunicipio, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                         DisplayMemberPath="Nome" IsEditable="False" IsFilteringEnabled="True"  Margin="10,8" x:Name="comboMunicipioNatural"/>
+                                    <TextBlock Grid.Row="3" Grid.Column="6" Text="COMUNA" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <telerik:RadComboBox Grid.Row="3" Grid.Column="7" ItemsSource="{Binding ElementName=comboMunicipioNatural, Path=SelectedItem.Comunas}"
+                                                         SelectedValuePath="Codigo" SelectedValue="{Binding DadosPessoaisCodigoNaturalidade, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                         DisplayMemberPath="Nome" IsEditable="False" IsFilteringEnabled="True"  Margin="10,8"/>
+                                    <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                        <Run FontWeight="Bold" Foreground="{StaticResource StrongBrush}" Text="ENDEREÇO: "/>
+                                        <Run Text="PAÍS"/>
+                                    </TextBlock>
+                                    <telerik:RadComboBox Grid.Row="4" Grid.Column="1" ItemsSource="{Binding Source={x:Static model:MainRepository.Instance}, Path=Paises}"
+                                                         SelectedValue="{Binding DadosPessoaisEnderecoPais, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                         DisplayMemberPath="Nome" IsEditable="False" IsFilteringEnabled="True"  Margin="10,8" x:Name="comboPaisEndereco"/>
+                                    <TextBlock Grid.Row="4" Grid.Column="2" Text="PROVÍNCIA" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <telerik:RadComboBox Grid.Row="4" Grid.Column="3" ItemsSource="{Binding ElementName=comboPaisEndereco, Path=SelectedItem.Provincias}"
+                                                         SelectedValue="{Binding DadosPessoaisEnderecoProvincia, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                         DisplayMemberPath="Nome" IsEditable="False" IsFilteringEnabled="True"  Margin="10,8" x:Name="comboProvinciaEndereco"/>
+                                    <TextBlock Grid.Row="4" Grid.Column="4" Text="MUNICÍPIO" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <telerik:RadComboBox Grid.Row="4" Grid.Column="5" ItemsSource="{Binding ElementName=comboProvinciaEndereco, Path=SelectedItem.Municipios}"
+                                                         SelectedValue="{Binding DadosPessoaisEnderecoMunicipio, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                         DisplayMemberPath="Nome" IsEditable="False" IsFilteringEnabled="True"  Margin="10,8" x:Name="comboMunicipioEndereco"/>
+                                    <TextBlock Grid.Row="4" Grid.Column="6" Text="COMUNA" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <telerik:RadComboBox Grid.Row="4" Grid.Column="7" ItemsSource="{Binding ElementName=comboMunicipioEndereco, Path=SelectedItem.Comunas}"
+                                                         SelectedValuePath="Codigo" SelectedValue="{Binding DadosPessoaisEnderecoCodigoDaRegiao, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                         DisplayMemberPath="Nome" IsEditable="False" IsFilteringEnabled="True"  Margin="10,8"/>
+                                    <TextBlock Grid.Row="5" Grid.Column="0" Text="BAIRRO" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <TextBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding DadosPessoaisEnderecoBairro, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="10,8"/>
+                                    <TextBlock Grid.Row="5" Grid.Column="4" Text="RUA" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <TextBox Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="3" Text="{Binding DadosPessoaisEnderecoRua, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="10,8"/>
+                                    <TextBlock Grid.Row="6" Grid.Column="0" Text="BLOCO" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding DadosPessoaisEnderecoBloco, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="10,8"/>
+                                    <TextBlock Grid.Row="6" Grid.Column="2" Text="PRÉDIO" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <TextBox Grid.Row="6" Grid.Column="3" Text="{Binding DadosPessoaisEnderecoPredio, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="10,8"/>
+                                    <TextBlock Grid.Row="6" Grid.Column="4" Text="ANDAR" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <TextBox Grid.Row="6" Grid.Column="5" Text="{Binding DadosPessoaisEnderecoAndar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="10,8"/>
+                                    <TextBlock Grid.Row="6" Grid.Column="6" Text="NÚMERO" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <TextBox Grid.Row="6" Grid.Column="7" Text="{Binding DadosPessoaisEnderecoNumero, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="10,8"/>
+                                    <TextBlock Grid.Row="7" Grid.Column="0" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                        <Run FontWeight="Bold" Foreground="{StaticResource StrongBrush}" Text="DOCUMENTO: "/>
+                                        <Run Text="TIPO"/>
+                                    </TextBlock>
+                                    <telerik:RadComboBox Grid.Row="7" Grid.Column="1" ItemsSource="{Binding Source={x:Static model:MainRepository.Instance}, Path=TiposDeIdentificacao}"
+                                                         SelectedValue="{Binding DadosPessoaisIdentificacaoTipo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="10,8"/>
+                                    <TextBlock Grid.Row="7" Grid.Column="2" Text="NUMERO" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <TextBox Grid.Row="7" Grid.Column="3" Text="{Binding DadosPessoaisIdentificacaoNumero, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="10,8"/>
+                                    <TextBlock Grid.Row="7" Grid.Column="4" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                        <Run FontWeight="Bold" Foreground="{StaticResource StrongBrush}" Text="LOCAL DE EMISSÃO: "/>
+                                        <Run Text="PAÍS"/>
+                                    </TextBlock>
+                                    <telerik:RadComboBox Grid.Row="7" Grid.Column="5" ItemsSource="{Binding Source={x:Static model:MainRepository.Instance}, Path=Paises}"
+                                                         SelectedValue="{Binding DadosPessoaisEnderecoPais, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                         DisplayMemberPath="Nome" IsEditable="False" IsFilteringEnabled="True"  Margin="10,8" x:Name="comboPaisDocumento"/>
+                                    <TextBlock Grid.Row="7" Grid.Column="6" Text="PROVÍNCIA" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <telerik:RadComboBox Grid.Row="7" Grid.Column="7" ItemsSource="{Binding ElementName=comboPaisDocumento, Path=SelectedItem.Provincias}"
+                                                         SelectedValuePath="Codigo" SelectedValue="{Binding DadosPessoaisIdentificacaoEmitidoEm, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                         DisplayMemberPath="Nome" IsEditable="False" IsFilteringEnabled="True"  Margin="10,8"/>
+                                    <TextBlock Grid.Row="8" Grid.Column="0" Text="DATA DE EMISSÃO" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <telerik:RadDatePicker Grid.Row="8" Grid.Column="1"  SelectedValue="{Binding DadosPessoaisIdentificacaoDataDeEmissao, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                           DisplayDateStart="1/1/1950" Margin="10,8"/>
+                                    <TextBlock Grid.Row="8" Grid.Column="2" Text="VÁLIDO ATÉ" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <telerik:RadDatePicker Grid.Row="8" Grid.Column="3"  SelectedValue="{Binding DadosPessoaisIdentificacaoValidoAte, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                           DisplayDateStart="1/1/2010" Margin="10,8"/>
+                                    <TextBlock Grid.Row="8" Grid.Column="4" Text="OBSERVAÇÕES" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <TextBox Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="3" Text="{Binding DadosPessoaisIdentificacaoObservacoes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="10,8"/>
+                                    <TextBlock Grid.Row="9" Grid.Column="0" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                        <Run FontWeight="Bold" Foreground="{StaticResource StrongBrush}" Text="CONTACTO: "/>
+                                        <Run Text="TELEFONE 01"/>
+                                    </TextBlock>
+                                    <TextBox Grid.Row="9" Grid.Column="1" Text="{Binding DadosPessoaisContactoTelefone01, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="10,8"/>
+                                    <TextBlock Grid.Row="9" Grid.Column="2" Text="TELEFONE 02" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <TextBox Grid.Row="9" Grid.Column="3" Text="{Binding DadosPessoaisContactoTelefone02, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="10,8"/>
+                                    <TextBlock Grid.Row="9" Grid.Column="4" Text="EMAIL" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <TextBox Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="3" Text="{Binding DadosPessoaisContactoEmail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="10,8"/>
+                                </Grid>
+                            </telerik:GroupBox>
+                            <telerik:GroupBox Grid.Row="1" Header="DADOS CONTRATUAIS">
+                                <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Row="0" Grid.Column="0" Text="TIPO DE CONTRATO" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <telerik:RadComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Source={x:Static model:MainRepository.Instance}, Path=TiposDeContrato}"
+                                                         SelectedValue="{Binding ContratoTipo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEditable="False"  Margin="10,8"/>
+                                    <TextBlock Grid.Row="0" Grid.Column="2" Text="CLASSE DE SERVIÇO" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <telerik:RadComboBox Grid.Row="0" Grid.Column="3" ItemsSource="{Binding Source={x:Static model:MainRepository.Instance}, Path=ClasesDeServico}"
+                                                         SelectedValue="{Binding ContratoClasseDeServico, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEditable="False" Margin="10,8"/>
+                                    <TextBlock Grid.Row="0" Grid.Column="4" Text="NÚMERO" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <TextBox Grid.Row="0" Grid.Column="5" Text="{Binding ContratoNumero, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="10,8"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="0" Text="HABILITAÇÃO LITERÁRIA" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <telerik:RadComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Source={x:Static model:MainRepository.Instance}, Path=HabilitacoesLiterarias}"
+                                                         SelectedValuePath="Id" SelectedValue="{Binding HabilitacaoLiterariaId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                         DisplayMemberPath="Designacao" IsEditable="False" IsFilteringEnabled="True"  Margin="10,8"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="2" Text="CATEGORIA" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <telerik:RadComboBox Grid.Row="1" Grid.Column="3" ItemsSource="{Binding Source={x:Static model:MainRepository.Instance}, Path=Carreiras}"
+                                                         SelectedValuePath="Id" SelectedValue="{Binding CarreiraId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                         DisplayMemberPath="Categoria" IsEditable="False" IsFilteringEnabled="True"  Margin="10,8"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="4" Text="CARGO" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <telerik:RadComboBox Grid.Row="1" Grid.Column="5" ItemsSource="{Binding Source={x:Static model:MainRepository.Instance}, Path=Cargos}"
+                                                         SelectedValuePath="Id" SelectedValue="{Binding CargoId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                         DisplayMemberPath="EsturcturaCargo" IsEditable="False" IsFilteringEnabled="True"  Margin="10,8"/>
+                                    <TextBlock Grid.Row="2" Grid.Column="0" Text="FUNÇÃO" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Funcao, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="10,8"/>
+                                    <TextBlock Grid.Row="2" Grid.Column="2" Text="DATA INICIAL" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <telerik:RadDatePicker Grid.Row="2" Grid.Column="3"  SelectedValue="{Binding ContratoDataInicial, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                           DisplayDateStart="1/1/2000" Margin="10,8"/>
+                                    <TextBlock Grid.Row="2" Grid.Column="4" Text="DATA FINAL" Style="{StaticResource Heading3}" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                    <telerik:RadDatePicker Grid.Row="2" Grid.Column="5"  SelectedValue="{Binding ContratoDataFinal, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                           DisplayDateStart="1/1/2017" Margin="10,8"/>
+                                </Grid>
+                            </telerik:GroupBox>
+                            <telerik:GroupBox Grid.Row="2" Header="AFECTAÇÕES SALARIAIS TEMPORÁRIAS">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <telerik:RadGridView Grid.Column="0"
+                                                         ItemsSource="{Binding AfectacoesSalariaisManuais}" CanUserFreezeColumns="False"
+                                                         ColumnWidth="Auto" IsFilteringAllowed="False"
+                                                         GroupRenderMode="Flat" AutoExpandGroups="False" AutoGenerateColumns="False"
+                                                         IsReadOnly="True" ShowGroupPanel="False" RowIndicatorVisibility="Collapsed"
+                                                         ValidatesOnDataErrors="None" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                        <telerik:RadGridView.Columns>
+                                            <telerik:GridViewDataColumn Header="DESIGNAÇÃO" DataMemberBinding="{Binding Designacao}" />
+                                            <telerik:GridViewDataColumn Header="DATA INICIAL" DataMemberBinding="{Binding DataInicial, StringFormat=dd/MM/yyyy}"/>
+                                            <telerik:GridViewDataColumn Header="DATA FINAL" DataMemberBinding="{Binding DataFinal, StringFormat=dd/MM/yyyy}" />
+                                            <telerik:GridViewDataColumn Header="TIPO" DataMemberBinding="{Binding Tipo}" />
+                                            <telerik:GridViewDataColumn Header="VALOR" DataMemberBinding="{Binding Valor, StringFormat={}{0:F2}}" />
+                                        </telerik:RadGridView.Columns>
+                                    </telerik:RadGridView>
+
+                                    <telerik:RadDataForm Grid.Column="1"
+                                                         ItemsSource="{Binding AfectacoesSalariaisManuais}"
+                                                         AutoGenerateFields="False" ValidationSummaryVisibility="Visible" LabelPosition="Above"
+                                                         VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"
+                                                         ReadOnlyTemplate="{StaticResource afectacaoSalarialReadOnlyTemplate}"
+                                                         EditTemplate="{StaticResource afectacaoSalarialEditTemplate}"
+                                                         NewItemTemplate="{StaticResource afectacaoSalarialEditTemplate}"/>
+                                </Grid>
+                            </telerik:GroupBox>
+                        </Grid>
+                    </ScrollViewer>
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <telerik:RadBusyIndicator IsIndeterminate="True" 
+								  IsBusy="{Binding IsBusy}" DisplayAfter="0:0:0.2"
+								  telerik:AnimationManager.IsAnimationEnabled="True">
+        <Grid x:Name="LayoutRoot">
+            <telerik:RadDataForm x:Name="dataForm"
+                             Style="{StaticResource CustomDataFormStyle}"
+                             ItemsSource="{Binding Funcionarios}"
+                             CommandButtonsVisibility="Cancel,Commit" 
+                             AutoGenerateFields="False"
+                             BeginningEdit="RadDataForm_BeginningEdit"
+                             ValidationSummaryVisibility="Visible"
+							 EditEnded="RadDataForm_EditEnded"
+                             AddingNewItem="RadDataForm_AddingNewItem"
+							 CurrentItemChanged="OnDataFormCurrentItemChanged"
+                             LabelPosition="Above"
+                             ReadOnlyTemplate="{StaticResource funcionariosReadOnlyTemplate}"
+                             EditTemplate="{StaticResource funcionariosEditTemplate}"
+                             NewItemTemplate="{StaticResource funcionariosEditTemplate}" 
+                             VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" />
+            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Margin="7,0" Orientation="Horizontal">
+                <telerik:RadButton RenderTransformOrigin="0.5,0.5" Style="{StaticResource HeaderAddEditButtonStyle}" Margin="0,0,40,0" Tag="ADICIONAR"
+                               Command="telerik:RadDataFormCommands.AddNew" CommandTarget="{Binding ElementName=dataForm}" 
+                               IsEnabled="{Binding IsAddingOrEditingContact,Converter={StaticResource InvertedBooleanConverter}}">
+                    <Path Stretch="None" Fill="{theme:CRMThemeResource Resource=AccentBrush}"
+                      Data="M6,0 L10,0 L10,6 L16,6 L16,10 L10,10 L10,16 L6,16 L6,10 L0,10 L0,6 L6,6 z"
+                      SnapsToDevicePixels="True" />
+                </telerik:RadButton>
+                <telerik:RadButton Style="{StaticResource HeaderAddEditButtonStyle}" 
+                               Command="telerik:RadDataFormCommands.BeginEdit" CommandTarget="{Binding ElementName=dataForm}" Tag="EDITAR">
+                    <Path Stretch="Fill" Fill="{theme:CRMThemeResource Resource=AccentBrush}"
+                      Data="F1 M233.5498,613.749 C233.9048,613.662,233.9828,613.379,233.7238,613.123 L232.1378,611.544 C231.8808,611.288,231.5968,611.367,231.5098,611.718L230.9968,613.784C230.9088,614.139,231.1258,614.355,231.4808,614.267z M249.4978,595.808C247.7348,594.047,245.9968,595.404,245.9968,595.404C245.7078,595.627,245.2668,596.019,245.0118,596.269C244.7588,596.521,244.7638,596.939,245.0198,597.196L248.1078,600.281C248.3648,600.54,248.7828,600.544,249.0388,600.29C249.2918,600.036,249.6808,599.594,249.9038,599.307C249.9038,599.307,251.2638,597.572,249.4978,595.808 M237.2018,612.109C236.9458,612.369,236.5228,612.369,236.2668,612.109L233.1778,609.025C232.9208,608.768,232.9208,608.349,233.1778,608.09L243.0538,598.228C243.3108,597.971,243.7318,597.971,243.9898,598.228L247.0738,601.312C247.3328,601.571,247.3328,601.993,247.0738,602.248z" 
+                      Height="16" Width="16"
+                      SnapsToDevicePixels="True" />
+                </telerik:RadButton>
+            </StackPanel>
+        </Grid>
+    </telerik:RadBusyIndicator>
+
+</UserControl>

@@ -1,0 +1,41 @@
+﻿<Window x:Class="RH.Manager.MainWindow"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                xmlns:theme="clr-namespace:RH.Manager.Appearance"
+                xmlns:converters="clr-namespace:RH.Manager.Converters"
+		        xmlns:controls="clr-namespace:RH.Manager.CustomControls"
+                xmlns:viewmodel="clr-namespace:RH.Manager.ViewModel"
+                Title="ACITE HR SYSTEM" WindowStartupLocation="CenterScreen" Width="1280" Height="800"
+                WindowState="Maximized" SnapsToDevicePixels="True" MinWidth="1024" MinHeight="768"
+                DataContext="{Binding Source={x:Static Member=viewmodel:MainViewModel.Instance}}"
+                Background="{theme:CRMThemeResource Resource=Background}"
+                Foreground="{theme:CRMThemeResource Resource=Foreground}">
+    <Window.Resources>
+        <DataTemplate x:Key="ClientAreaTemplate">
+            <Border Background="Transparent">
+                <Grid Margin="5">
+                    <Border CornerRadius="5" BorderBrush="#FFAAB9C0" BorderThickness="1">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="7" ShadowDepth="2" Opacity="0.5" />
+                        </Border.Effect>
+                    </Border>
+                    <AdornerDecorator Margin="5">
+                        <ContentPresenter x:Name="Content" Content="{Binding}"/>
+                    </AdornerDecorator>
+                </Grid>
+            </Border>
+        </DataTemplate>
+    </Window.Resources>
+    <Border Margin="0">
+        <Grid>
+            <telerik:RadTransitionControl x:Name="clientArea" Grid.Row="1"
+                                          ContentTemplate="{StaticResource ClientAreaTemplate}"
+                                          Content="{Binding Content}">
+                <telerik:RadTransitionControl.Transition>
+                    <telerik:MotionBlurredZoomTransition />
+                </telerik:RadTransitionControl.Transition>
+            </telerik:RadTransitionControl>
+        </Grid>
+    </Border>
+</Window>

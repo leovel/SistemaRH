@@ -1,0 +1,184 @@
+﻿<UserControl x:Class="RH.Manager.CustomControls.OrgChart"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		     xmlns:converters="clr-namespace:RH.Manager.Converters"
+		     xmlns:diagrams="clr-namespace:Telerik.Windows.Controls.Diagrams;assembly=Telerik.Windows.Controls.Diagrams"
+		     xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+		     xmlns:tools="clr-namespace:Telerik.Windows.Diagrams.Core;assembly=Telerik.Windows.Diagrams.Core"
+		     xmlns:transitions="clr-namespace:Telerik.Windows.Controls.TransitionEffects;assembly=Telerik.Windows.Controls"
+             xmlns:controls="clr-namespace:RH.Manager.CustomControls"
+		     xmlns:viewmodel="clr-namespace:RH.Manager.ViewModel" UseLayoutRounding="True">
+    <Grid x:Name="RootGrid">
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="65" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Border BorderBrush="#d6d4d4" BorderThickness="1">
+                <Grid Margin="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <telerik:RadGeometryDropDownButton x:Name="LayoutTypeDropDown" Width="130" DropDownWidth="130"
+							DropDownHeight="180" Content="Orientação"
+							Geometry="M8.9999962,0 L12.999996,0 C14.104566,3.8743019E-07 14.999996,0.89543086 14.999996,2 L14.999996,5 C14.999996,6.1045694 14.104566,7 12.999996,7 L12,7 L12,9 L19,9 L19,11 L19,12 L20,12 C21.10457,12 22,12.895431 22,14 L22,17 C22,18.10457 21.10457,19 20,19 L16,19 C14.895432,19 14,18.10457 14,17 L14,14 C14,12.895431 14.895432,12 16,12 L17,12 L17,11 L5,11 L5,12 L6,12 C7.1045694,12 8,12.895431 8,14 L8,17 C8,18.10457 7.1045694,19 6,19 L2,19 C0.89543056,19 0,18.10457 0,17 L0,14 C0,12.895431 0.89543056,12 2,12 L3,12 L3,11 L3,9 L10,9 L10,7 L8.9999962,7 C7.8954268,7 6.9999962,6.1045694 6.9999962,5 L6.9999962,2 C6.9999962,0.89543086 7.8954268,3.8743019E-07 8.9999962,0 z">
+                        <telerik:RadGeometryDropDownButton.DropDownContent>
+                            <StackPanel Margin="10">
+                                <telerik:RadGeometryButton Content="Abaixo" Click="LayoutTypeButtonClick"
+										Style="{StaticResource GeometryButtonMenuItemStyle}" Height="32" Width="110"
+										Geometry="M8.9999962,0 L12.999996,0 C14.104566,3.8743019E-07 14.999996,0.89543086 14.999996,2 L14.999996,5 C14.999996,6.1045694 14.104566,7 12.999996,7 L12,7 L12,9 L19,9 L19,11 L19,12 L20,12 C21.10457,12 22,12.895431 22,14 L22,17 C22,18.10457 21.10457,19 20,19 L16,19 C14.895432,19 14,18.10457 14,17 L14,14 C14,12.895431 14.895432,12 16,12 L17,12 L17,11 L5,11 L5,12 L6,12 C7.1045694,12 8,12.895431 8,14 L8,17 C8,18.10457 7.1045694,19 6,19 L2,19 C0.89543056,19 0,18.10457 0,17 L0,14 C0,12.895431 0.89543056,12 2,12 L3,12 L3,11 L3,9 L10,9 L10,7 L8.9999962,7 C7.8954268,7 6.9999962,6.1045694 6.9999962,5 L6.9999962,2 C6.9999962,0.89543086 7.8954268,3.8743019E-07 8.9999962,0 z" />
+                                <telerik:RadGeometryButton Content="Acima" Click="LayoutTypeButtonClick"
+										Style="{StaticResource GeometryButtonMenuItemStyle}" Height="32" Width="110"
+										Geometry="M2,0 L6,0 C7.1045694,0 8,0.89543056 8,2 L8,6 C8,7.1045694 7.1045694,8 6,8 L5,8 L5,9 L17,9 L17,8 L16,8 C14.895431,8 14,7.1045694 14,6 L14,2 C14,0.89543056 14.895431,0 16,0 L20,0 C21.104568,0 22,0.89543056 22,2 L22,6 C22,7.1045694 21.104568,8 20,8 L19,8 L19,9 L19,11 L17,11 L12,11 L12,13 L13,13 C14.104569,13 15,13.895431 15,15 L15,19 C15,20.104568 14.104569,21 13,21 L9,21 C7.8954306,21 7,20.104568 7,19 L7,15 C7,13.895431 7.8954306,13 9,13 L10,13 L10,11 L5,11 L3,11 L3,9 L3,8 L2,8 C0.89543056,8 0,7.1045694 0,6 L0,2 C0,0.89543056 0.89543056,0 2,0 z" />
+                                <telerik:RadGeometryButton Content="Direita" Click="LayoutTypeButtonClick"
+										Style="{StaticResource GeometryButtonMenuItemStyle}" Height="32" Width="110"
+										Geometry="M16,0 L20,0 C21.10457,0 22,0.89543056 22,2 L22,6 C22,7.1045694 21.10457,8 20,8 L16,8 C14.895431,8 14,7.1045694 14,6 L14,5 L12,5 L12,15 L14,15 L14,14 C14,12.895431 14.895431,12 16,12 L20,12 C21.10457,12 22,12.895431 22,14 L22,18 C22,19.104568 21.10457,20 20,20 L16,20 C14.895431,20 14,19.104568 14,18 L14,17 L10,17 L10,11 L8,11 L8,12 C8,13.104569 7.1045694,14 6,14 L2,14 C0.89543051,14 0,13.104569 0,12 L0,8 C0,6.8954306 0.89543051,6 2,6 L6,6 C7.1045694,6 8,6.8954306 8,8 L8,9 L10,9 L10,3 L14,3 L14,2 C14,0.89543056 14.895431,0 16,0 z" />
+                                <telerik:RadGeometryButton Content="Esquerda" Click="LayoutTypeButtonClick"
+										Style="{StaticResource GeometryButtonMenuItemStyle}" Height="32" Width="110"
+										Geometry="M2,0 L6,0 C7.1045694,0 8,0.89543056 8,2 L8,3 L12,3 L12,9 L14,9 L14,8 C14,6.8954306 14.895431,6 16,6 L20,6 C21.104568,6 22,6.8954306 22,8 L22,12 C22,13.104569 21.104568,14 20,14 L16,14 C14.895431,14 14,13.104569 14,12 L14,11 L12,11 L12,17 L8,17 L8,18 C8,19.104568 7.1045694,20 6,20 L2,20 C0.89543056,20 0,19.104568 0,18 L0,14 C0,12.895431 0.89543056,12 2,12 L6,12 C7.1045694,12 8,12.895431 8,14 L8,15 L10,15 L10,5 L8,5 L8,6 C8,7.1045694 7.1045694,8 6,8 L2,8 C0.89543056,8 0,7.1045694 0,6 L0,2 C0,0.89543056 0.89543056,0 2,0 z" />
+                                <telerik:RadGeometryButton Content="Especial" Click="LayoutTypeButtonClick"
+										Style="{StaticResource GeometryButtonMenuItemStyle}" Height="32" Width="110"
+										Geometry="M1.9999998,0 L6,0 C7.1045694,0 8,0.89543051 8,1.9999999 L8,6 C8,7.1045694 7.1045694,8 6,8 L5,8 L5,9.999999 L13,9.999999 L13,7.9999986 C13,6.8954291 13.895431,5.9999986 15,5.9999986 L19,5.9999986 C20.10457,5.9999986 21,6.8954291 21,7.9999986 L21,11.999998 C21,13.104568 20.10457,13.999998 19,13.999998 L15,13.999998 C13.929949,13.999998 13.056169,13.159658 13.002603,12.102918 L13,11.999999 L5,11.999999 L5,17.999998 L13,17.999998 L13,17 C13,15.89543 13.895431,14.999999 15,14.999999 L19,14.999999 C20.10457,14.999999 21,15.89543 21,17 L21,21 C21,22.104568 20.10457,23 19,23 L15,23 C13.895431,23 13,22.104568 13,21 L13,19.999998 L5,19.999998 L3,19.999998 L3,8 L1.9999998,8 C0.89543033,8 -2.0209694E-07,7.1045694 2.8421709E-14,6 L2.8421709E-14,1.9999999 C-2.0209694E-07,0.89543051 0.89543033,0 1.9999998,0 z" />
+                            </StackPanel>
+                        </telerik:RadGeometryDropDownButton.DropDownContent>
+                    </telerik:RadGeometryDropDownButton>
+                    <telerik:RadGeometryButton Content="Actualizar" Grid.Column="1"
+							Click="LayoutButtonClicked"
+							Geometry="M17.1706,23.0313L17.15,19.3961C17.15,19.3961 13.5831,23.0216 7.76908,22.1045C1.52499,21.1196 -1.24492e-007,13.2103 0,13.2103L3.58166,13.1882C3.58166,13.1882 4.64999,18.7462 8.83749,18.9335C12.8354,19.1124 15.166,16.8762 15.166,16.8762C14.8663,16.8875 10.8107,16.8543 10.8107,16.8543L13.0918,13.8768L19.7433,13.8873L19.778,21.1566M2.61458,1.28076L2.61979,5.11054C2.80828,4.98548 6.45755,1.172 12.2223,2.91661C18.5557,4.83327 19.7251,11.8869 19.747,11.938L16.0027,11.938L15.7689,11.029C15.5548,10.4093 14.3611,7.08275 10.4723,6.08327C7.23333,5.25081 4.42267,7.98367 4.18778,8.13571L4.18362,8.13801L4.17103,8.13801C4.17072,8.14214 4.17313,8.14306 4.1782,8.14101L4.18362,8.13801L8.69773,8.13801L6.32833,11.238L0.030998,11.238L0.030998,3.68732z" />
+
+                    <telerik:RadGeometryDropDownButton Content="Exportar" Grid.Column="2" DropDownHeight="80"
+							DropDownWidth="144" Width="144" x:Name="exportButton"
+							Geometry="M11,0L18,7L11,7zM0,0L10,0L10,7L10,8L18,8L18,12L8.88893,12L8.88893,9L3.82715,14L8.88893,19L8.88893,16L18,16L18,21L0,21z">
+                        <telerik:RadGeometryDropDownButton.DropDownContent>
+                            <StackPanel Margin="10">
+                                <telerik:RadGeometryButton Content="Imagem .Png"
+										Command="telerik:DiagramCommands.Export" CommandParameter="Png"
+										CommandTarget="{Binding ElementName=diagram}"
+                                        Style="{StaticResource GeometryButtonMenuItemStyle}"
+										Geometry="M6.7093377,5.0820007 C10.505837,5.0813236 12.205385,8.5835428 13.709369,8.4989958 C15.616847,8.3917685 16.999527,6.8087606 16.999527,6.8087606 L17.000025,13.080002 L3.0000243,13.080002 L3.0000243,7.9753876 C3.0000243,7.9753876 4.842936,5.0823336 6.7093377,5.0820007 z M1.9999999,2.0000048 L1.9999999,13.999995 L18,13.999995 L18,2.0000048 z M1.1920929E-06,0 L20,0 L20,16 L0,16 z" />
+                                <telerik:RadGeometryButton Content="Imagem .Bmp"
+										Command="telerik:DiagramCommands.Export" CommandParameter="Bmp"
+										CommandTarget="{Binding ElementName=diagram}"
+										Style="{StaticResource GeometryButtonMenuItemStyle}"
+										Geometry="M6.7093377,5.0820007 C10.505837,5.0813236 12.205385,8.5835428 13.709369,8.4989958 C15.616847,8.3917685 16.999527,6.8087606 16.999527,6.8087606 L17.000025,13.080002 L3.0000243,13.080002 L3.0000243,7.9753876 C3.0000243,7.9753876 4.842936,5.0823336 6.7093377,5.0820007 z M1.9999999,2.0000048 L1.9999999,13.999995 L18,13.999995 L18,2.0000048 z M1.1920929E-06,0 L20,0 L20,16 L0,16 z" />
+                            </StackPanel>
+                        </telerik:RadGeometryDropDownButton.DropDownContent>
+                    </telerik:RadGeometryDropDownButton>
+                    <telerik:RadGeometryButton Content="Imprimir" Grid.Column="3" 
+							Geometry="M4,20L18,20L18,22L4,22zM0,11L3,11L3,13L19,13L19,11L22,11L22,19L0,19zM13,0L18,5.04273L13,5zM4,0L12,0L12,6L18,6L18,12L4,12z"
+							Command="telerik:DiagramExtensionCommands.Print"
+							CommandTarget="{Binding ElementName=diagram}" />
+                </Grid>
+            </Border>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="194"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Border  Margin="0 4 2 0" Padding="0 25 0 0" BorderBrush="#FFD6D4D4" BorderThickness="1">
+                    <Grid HorizontalAlignment="Left">
+                        <StackPanel x:Name="configStackPanel">
+                            <StackPanel Margin="5 0 0 0">
+                                <TextBlock Text="Separação Horizontal" HorizontalAlignment="Left" Margin="4 0 0 0" />
+                                <telerik:RadSlider x:Name="HorizontalSeparationSlider" Width="180" Height="25" Margin="0 5"
+							HorizontalAlignment="Left" VerticalAlignment="Center" IsDeferredDraggingEnabled="True"
+							IsSnapToTickEnabled="True" LargeChange="10" Maximum="150" SmallChange="1" TickFrequency="10"
+							Value="{Binding Path=ChildTreeLayoutViewModel.HorizontalSeparation, Mode=TwoWay}" />
+                            </StackPanel>
+                            <StackPanel Margin="5 0 0 0">
+                                <TextBlock Text="Separação Vertical" HorizontalAlignment="Left" Margin="4 0 0 0" />
+                                <telerik:RadSlider x:Name="VerticalSeparationSlider" Width="180" Height="25" Margin="0 5"
+							HorizontalAlignment="Left" VerticalAlignment="Center" IsDeferredDraggingEnabled="True"
+							IsSnapToTickEnabled="True" LargeChange="10" Maximum="150" SmallChange="1" TickFrequency="10"
+							Value="{Binding Path=ChildTreeLayoutViewModel.VerticalSeparation, Mode=TwoWay}" />
+                            </StackPanel>
+                            <StackPanel
+						Visibility="{Binding Path=CurrentTreeLayoutType, Converter={StaticResource LayoutTypeToVisibilityConverter}}">
+                                <TextBlock Text="Margem Horizontal" HorizontalAlignment="Left" Margin="4 0 0 0" />
+                                <telerik:RadSlider x:Name="UnderneathHorizontalOffsetSlider" Width="180" Height="25" Margin="0 5"
+							IsDeferredDraggingEnabled="True" IsSnapToTickEnabled="True" LargeChange="10" Maximum="150"
+							SmallChange="1" TickFrequency="10" HorizontalAlignment="Left"
+							Value="{Binding Path=ChildTreeLayoutViewModel.UnderneathHorizontalOffset, Mode=TwoWay}" />
+                                <TextBlock Text="Margem Vertical" HorizontalAlignment="Left" Margin="4 0 0 0" />
+                                <telerik:RadSlider x:Name="UnderneathVerticalTopOffsetSlider" Width="180" Height="25" Margin="0 5"
+							IsDeferredDraggingEnabled="True" IsSnapToTickEnabled="True" LargeChange="10" Maximum="150"
+							SmallChange="1" TickFrequency="10" HorizontalAlignment="Left"
+							Value="{Binding Path=ChildTreeLayoutViewModel.UnderneathVerticalTopOffset, Mode=TwoWay}" />
+                            </StackPanel>
+
+                            <CheckBox IsChecked="{Binding ShouldLayoutAfterExpandCollapse, Mode=TwoWay}" Margin="4">
+                                <TextBlock Text="Arrangar ao Abrir/Fechar" TextWrapping="Wrap" />
+                            </CheckBox>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Border Grid.Column="1"  Margin="2 4 0 0" BorderBrush="#FFD6D4D4" BorderThickness="1">
+                    <Grid>
+                        <controls:OrgChartDiagram x:Name="diagram" GraphSourceChanged="DiagramGraphSourceChanged" 
+                                              GraphSource="{Binding GraphSource}"
+							ScrollViewer.HorizontalScrollBarVisibility="Auto"
+							ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                        IsConnectorsManipulationEnabled="False"
+							Zoom="{Binding ZoomFactor, Mode=TwoWay}" />
+
+                        <Grid HorizontalAlignment="Right" Margin="0 1 13 12"
+							Visibility="{Binding Path=IsChecked, ElementName=expandToggleButton, Converter={StaticResource BooleanToVisibilityConverter}}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="54" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <Border Background="White" Grid.RowSpan="3" BorderThickness="1 0 0 1"
+								BorderBrush="#D6D6D6" />
+                            <Border Grid.RowSpan="2" BorderThickness="1 0 0 1"
+								BorderBrush="#D6D6D6" />
+
+                            <Grid Height="30" Margin="0 -2 0 0"
+								Background="{StaticResource AccentBrush}">
+                                <TextBlock Text="ACITE" FontSize="17" Margin="7 1 0 2"
+									Foreground="White"
+									HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Sergoe UI Light" />
+                            </Grid>
+
+                            <Grid Grid.Row="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="4*" />
+                                    <RowDefinition Height="6*" />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Text="Procurar:" FontFamily="Sergoe UI Semibold"
+									VerticalAlignment="Center"
+									Foreground="{StaticResource AccentBrush}" FontSize="12"
+									Margin="6 6 0 0" />
+
+                                <telerik:RadComboBox x:Name="employeesComboBox" Margin="6 0 5 6"
+									KeyDown="EmployeesComboBoxKeyDown" Grid.Row="1" MinHeight="22" MinWidth="200"
+									DropDownClosed="EmployeesComboBoxDropDownClosed" VerticalAlignment="Bottom"
+									DisplayMemberPath="Name" EmptyText="Procure uma Area ou Funcionario..."
+									CanAutocompleteSelectItems="True" OpenDropDownOnFocus="true" IsEditable="True"
+									IsFilteringEnabled="True" TextSearchMode="Contains" />
+                            </Grid>
+
+                            <telerik:RadTreeView x:Name="OrgTreeView" telerik:TextSearch.TextPath="Name" Grid.Row="2"
+								Height="Auto" Margin="6" ItemClick="OrgTreeViewItemClick" PathSeparator="|"
+								BorderThickness="0" IsDragDropEnabled="False"
+								ItemTemplateSelector="{StaticResource TreeViewItemTemplateSelector}" SelectionMode="Single" />
+                        </Grid>
+
+                        <telerik:RadToggleButton x:Name="expandToggleButton" Margin="0 0 13 0" IsChecked="False"
+							Style="{StaticResource RadToggleButtonStyle}" RenderTransformOrigin="0.5 0.5"
+							Background="{StaticResource AccentBrush}" Height="30" Width="30"
+							VerticalAlignment="Top" HorizontalAlignment="Right" />
+
+                        <telerik:RadDiagramNavigationPane Diagram="{Binding ElementName=diagram}" x:Name="navigationPane"
+							HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0 0 0 18" />
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

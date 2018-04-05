@@ -1,0 +1,425 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{45E40ECA-A624-45A5-8B81-04993928A2A8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RH.Manager</RootNamespace>
+    <AssemblyName>RH.Manager</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Images\rhimage.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.3\lib\net47\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EQATEC.Analytics.Monitor">
+      <HintPath>..\..\..\..\..\Tools\Development\Telerik\2017 Demos\CRM_WPF\Binaries\WPF\EQATEC.Analytics.Monitor.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicrosoftExpressionInteractions.3.0.40218.0\lib\net45\Microsoft.Expression.Interactions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Prism, Version=7.0.0.396, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Core.7.0.0.396\lib\net45\Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.Wpf, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Wpf.6.3.0\lib\net45\Prism.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Wpf.6.3.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls">
+      <HintPath>..\lib\RCWPF\2018.1.116.45.NoXaml\Telerik.Windows.Controls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Chart">
+      <HintPath>..\lib\RCWPF\2018.1.116.45.NoXaml\Telerik.Windows.Controls.Chart.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Data">
+      <HintPath>..\lib\RCWPF\2018.1.116.45.NoXaml\Telerik.Windows.Controls.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.DataVisualization">
+      <HintPath>..\lib\RCWPF\2018.1.116.45.NoXaml\Telerik.Windows.Controls.DataVisualization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Diagrams">
+      <HintPath>..\lib\RCWPF\2018.1.116.45.NoXaml\Telerik.Windows.Controls.Diagrams.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Diagrams.Extensions">
+      <HintPath>..\lib\RCWPF\2018.1.116.45.NoXaml\Telerik.Windows.Controls.Diagrams.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.FileDialogs">
+      <HintPath>..\lib\RCWPF\2018.1.116.45.NoXaml\Telerik.Windows.Controls.FileDialogs.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView">
+      <HintPath>..\lib\RCWPF\2018.1.116.45.NoXaml\Telerik.Windows.Controls.GridView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView.Export">
+      <HintPath>..\lib\RCWPF\2018.1.116.45.NoXaml\Telerik.Windows.Controls.GridView.Export.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input">
+      <HintPath>..\lib\RCWPF\2018.1.116.45.NoXaml\Telerik.Windows.Controls.Input.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation">
+      <HintPath>..\lib\RCWPF\2018.1.116.45.NoXaml\Telerik.Windows.Controls.Navigation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.ScheduleView">
+      <HintPath>..\lib\RCWPF\2018.1.116.45.NoXaml\Telerik.Windows.Controls.ScheduleView.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.VirtualGrid">
+      <HintPath>..\lib\RCWPF\2018.1.116.45.NoXaml\Telerik.Windows.Controls.VirtualGrid.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data">
+      <HintPath>..\lib\RCWPF\2018.1.116.45.NoXaml\Telerik.Windows.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Diagrams.Core">
+      <HintPath>..\lib\RCWPF\2018.1.116.45.NoXaml\Telerik.Windows.Diagrams.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Core">
+      <HintPath>..\lib\RCWPF\2018.1.116.45.NoXaml\Telerik.Windows.Documents.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Fixed">
+      <HintPath>..\lib\RCWPF\2018.1.116.45.NoXaml\Telerik.Windows.Documents.Fixed.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet">
+      <HintPath>..\lib\RCWPF\2018.1.116.45.NoXaml\Telerik.Windows.Documents.Spreadsheet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml">
+      <HintPath>..\lib\RCWPF\2018.1.116.45.NoXaml\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.Pdf">
+      <HintPath>..\lib\RCWPF\2018.1.116.45.NoXaml\Telerik.Windows.Documents.Spreadsheet.FormatProviders.Pdf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Themes.Windows8">
+      <HintPath>..\lib\RCWPF\2018.1.116.45.NoXaml\Telerik.Windows.Themes.Windows8.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Zip">
+      <HintPath>..\lib\RCWPF\2018.1.116.45.NoXaml\Telerik.Windows.Zip.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Analytics\AnalyticsConfiguration.cs" />
+    <Compile Include="Analytics\EqatecConstants.cs" />
+    <Compile Include="Analytics\EqatecMonitor.cs" />
+    <Compile Include="Appearance\AppearanceChangedEventArgs.cs" />
+    <Compile Include="Appearance\AppearanceCommandParameter.cs" />
+    <Compile Include="Appearance\AppearanceManager.cs" />
+    <Compile Include="Appearance\ColorToSolidColorBrushConverter.cs" />
+    <Compile Include="Appearance\ColorVariations.cs" />
+    <Compile Include="Appearance\CRMResources.cs" />
+    <Compile Include="Appearance\CRMThemePalette.cs" />
+    <Compile Include="Appearance\CRMThemeResourceExtension.cs" />
+    <Compile Include="Appearance\Themes.cs" />
+    <Compile Include="Behaviors\AutoPopulateExportedViewsBehavior.cs" />
+    <Compile Include="Behaviors\IViewRegionRegistration.cs" />
+    <Compile Include="Behaviors\ViewExportAttribute.cs" />
+    <Compile Include="Converters\BooleanToTransitionConverter.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\BooleanToWidthConverter.cs" />
+    <Compile Include="Converters\CountToVisibilityConverter.cs" />
+    <Compile Include="Converters\DateTimeToRecentDaysConverter.cs" />
+    <Compile Include="Converters\DateTimeToUpperStringConverter.cs" />
+    <Compile Include="Converters\DebugConverter.cs" />
+    <Compile Include="Converters\ImageSourceToBitmapImageConverter.cs" />
+    <Compile Include="Converters\InvertedNullToVisibilityConverter.cs" />
+    <Compile Include="Converters\LayoutTypeToRotateAngleConverter.cs" />
+    <Compile Include="Converters\LayoutTypeToVisibilityConverter.cs" />
+    <Compile Include="Converters\NavigationIntervalStringConverter.cs" />
+    <Compile Include="Converters\NullToVisibilityConverter.cs" />
+    <Compile Include="Converters\ObjectToUpperCaseStringConverter.cs" />
+    <Compile Include="Converters\ParameterAndValueToBooleanConverter.cs" />
+    <Compile Include="Converters\ParameterAndValueToVisibilityConverter.cs" />
+    <Compile Include="Converters\ShapeBackgroundSelector.cs" />
+    <Compile Include="Converters\StatusToDataTemplateConverter.cs" />
+    <Compile Include="Converters\StringToUpperCaseConverter.cs" />
+    <Compile Include="Converters\StringToVisibiltyConverter.cs" />
+    <Compile Include="Converters\TreeViewItemTemplateSelector.cs" />
+    <Compile Include="Converters\WidthToVisibilityConverter.cs" />
+    <Compile Include="CustomControls\DropDialog.xaml.cs">
+      <DependentUpon>DropDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\EditingTextBox.cs" />
+    <Compile Include="CustomControls\OrgChart.xaml.cs">
+      <DependentUpon>OrgChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\OrgChartDiagram.cs" />
+    <Compile Include="CustomControls\OrgChartDragView.xaml.cs">
+      <DependentUpon>OrgChartDragView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\OrgChartFuncionario.cs" />
+    <Compile Include="CustomControls\OrgChartAreaDeTrabalhoItemsControl.cs" />
+    <Compile Include="DataModelExtension\DataModelExtension.cs" />
+    <Compile Include="Helpers\EntityClickedEvents.cs" />
+    <Compile Include="Helpers\FuncionariosViewState.cs" />
+    <Compile Include="Helpers\FuncionariosViewRegionNames.cs" />
+    <Compile Include="Helpers\GridViewColumnHelper.cs" />
+    <Compile Include="Helpers\NormalImportanceButtonHelper.cs" />
+    <Compile Include="Helpers\PriorityType.cs" />
+    <Compile Include="Helpers\PriorityTypeToImportanceConverter.cs" />
+    <Compile Include="Helpers\ScheduleViewCustomDialogHost.cs" />
+    <Compile Include="Helpers\ScheduleViewCustomDialogHostFactory.cs" />
+    <Compile Include="Helpers\ScheduleViewDialogBase.cs" />
+    <Compile Include="Helpers\ScheduleViewSingleAppointmentSelectionBehavior.cs" />
+    <Compile Include="Helpers\SelectedFuncionarioChangedEvent.cs" />
+    <Compile Include="Interfaces\IPathEnabled.cs" />
+    <Compile Include="Interfaces\ISelectable.cs" />
+    <Compile Include="Security\AnonymousIdentity.cs" />
+    <Compile Include="Security\AuthenticationService.cs" />
+    <Compile Include="Security\CustomIdentity.cs" />
+    <Compile Include="Security\CustomPrincipal.cs" />
+    <Compile Include="Security\IAuthenticationService.cs" />
+    <Compile Include="ViewModel\Menu\ActividadesViewModel.cs" />
+    <Compile Include="ViewModel\Menu\DashBoardViewModel.cs" />
+    <Compile Include="ViewModel\Menu\FuncionariosViewModel.cs" />
+    <Compile Include="ViewModel\Main\RHBindableBase.cs" />
+    <Compile Include="ViewModel\Main\LoginViewModel.cs" />
+    <Compile Include="ViewModel\Main\MainViewModel.cs" />
+    <Compile Include="ViewModel\Main\OpenSessionViewModel.cs" />
+    <Compile Include="ViewModel\Organigrama\HierarchicalDataTemplate.cs" />
+    <Compile Include="ViewModel\Organigrama\GraphSource.cs" />
+    <Compile Include="ViewModel\Organigrama\Link.cs" />
+    <Compile Include="ViewModel\Organigrama\AreaExpandCollapseChangeEventArgs.cs" />
+    <Compile Include="ViewModel\Organigrama\OrgMainViewModel.cs" />
+    <Compile Include="ViewModel\Organigrama\NewAreaEventArgs.cs" />
+    <Compile Include="ViewModel\Menu\SalariosViewModel.cs" />
+    <Compile Include="ViewModel\Tools\ClientTools.cs" />
+    <Compile Include="ViewModel\Tools\ThreadContext.cs" />
+    <Compile Include="ViewModel\Tools\ActionDelayer.cs" />
+    <Compile Include="ViewModel\AreaDeTrabalhoViewModel.cs" />
+    <Compile Include="ViewModel\Organigrama\ConnectorDescription.cs" />
+    <Compile Include="ViewModel\Organigrama\DropDialogViewModel.cs" />
+    <Compile Include="ViewModel\FuncionarioViewModel.cs" />
+    <Compile Include="ViewModel\Organigrama\OrgAreaDeTrabalhoViewModel.cs" />
+    <Compile Include="ViewModel\Menu\OrgChartViewModel.cs" />
+    <Compile Include="ViewModel\Organigrama\OrgFuncionarioViewModel.cs" />
+    <Compile Include="ViewModel\Organigrama\OrgRouterViewModel.cs" />
+    <Compile Include="ViewModel\Organigrama\TreeLayoutViewModel.cs" />
+    <Compile Include="View\Funcionario\FuncionariosDetailsUserControl.xaml.cs">
+      <DependentUpon>FuncionariosDetailsUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Funcionario\FuncionariosListUserControl.xaml.cs">
+      <DependentUpon>FuncionariosListUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Menu\ActividadesView.xaml.cs">
+      <DependentUpon>ActividadesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Menu\DashBoardView.xaml.cs">
+      <DependentUpon>DashBoardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Menu\FuncionariosView.xaml.cs">
+      <DependentUpon>FuncionariosView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\OpenSessionView.xaml.cs">
+      <DependentUpon>OpenSessionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Menu\SalariosView.xaml.cs">
+      <DependentUpon>SalariosView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="CustomControls\DropDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomControls\OrgChart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomControls\OrgChartDragView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Localization\CustomLocalizationManager.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Resources\RHResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ToolboxTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Funcionario\FuncionariosDetailsUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Funcionario\FuncionariosListUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Menu\ActividadesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Menu\DashBoardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Menu\FuncionariosView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\OpenSessionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Menu\SalariosView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewsDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\rhimage.ico" />
+    <Resource Include="Resources\Images\rhimage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RH.DataModel\RH.DataModel.csproj">
+      <Project>{aa196a0c-89dc-403b-b3a3-e34f449ceb5d}</Project>
+      <Name>RH.DataModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\Sair.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\defaultFuncionario.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AA196A0C-89DC-403B-B3A3-E34F449CEB5D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RH.DataModel</RootNamespace>
+    <AssemblyName>RH.DataModel</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actividade.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Actualizacao.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AfectacaoDeCargo.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AfectacaoDeCarreira.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AfectacaoDeFuncionario.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AfectacaoDeHabilitacaoLiteraria.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AfectacaoSalarial.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AreaDeTrabalho.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cargo.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Carreira.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClaseDeServico.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Comuna.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contacto.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contrato.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Credencial.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DadosDeActualizacao.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DadosPessoais.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Departamento.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Direccao.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Documento.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Endereco.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EstadoCivil.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EstadoDeCredencial.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Falta.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ficheiro.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Funcionario.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Genero.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HabilitacaoLiteraria.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Municipio.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NivelDeCredencial.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pais.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartialEntities\AreaDeTrabalho.cs" />
+    <Compile Include="PartialEntities\Cargo.cs" />
+    <Compile Include="PartialEntities\Carreira.cs" />
+    <Compile Include="PartialEntities\Contacto.cs" />
+    <Compile Include="PartialEntities\Contrato.cs" />
+    <Compile Include="PartialEntities\Credencial.cs" />
+    <Compile Include="PartialEntities\DadosPessoais.cs" />
+    <Compile Include="PartialEntities\Documento.cs" />
+    <Compile Include="PartialEntities\Endereco.cs" />
+    <Compile Include="PartialEntities\Ficheiro.cs" />
+    <Compile Include="PartialEntities\Funcionario.cs" />
+    <Compile Include="PartialEntities\HabilitacaoLiteraria.cs" />
+    <Compile Include="PartialEntities\Pais.cs" />
+    <Compile Include="Periodo.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provincia.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RecurrenciaDeActividade.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RegistoDiario.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\Abstract\IRepository.cs" />
+    <Compile Include="Repository\Abstract\RepositoryBase.cs" />
+    <Compile Include="Repository\Entities\AreaDeTrabalhoRepository.cs" />
+    <Compile Include="Repository\Entities\FuncionarioRepository.cs" />
+    <Compile Include="Repository\MainRepository.cs" />
+    <Compile Include="RHModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RHModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RHModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RHModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RHModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Salario.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Seccao.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoDeAfectacaoSalarial.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoDeContrato.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoDeFalta.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoDeIdentificacao.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoDeRecurrencia.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\EntityFameworkTools.cs" />
+    <Compile Include="Tools\ImageHandler.cs" />
+    <Compile Include="Tools\MimeMapping.cs" />
+    <Compile Include="Tools\RandomDataHelper.cs" />
+    <Compile Include="Tools\StringExtensions.cs" />
+    <Compile Include="ValorDoIndice.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VencimentoSalarial.cs">
+      <DependentUpon>RHModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="RHModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RHModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="RHModel.edmx.diagram">
+      <DependentUpon>RHModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RHModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>RHModel.Context.cs</LastGenOutput>
+      <DependentUpon>RHModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="RHModel.edmx.sql" />
+    <Content Include="RHModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>RHModel.cs</LastGenOutput>
+      <DependentUpon>RHModel.edmx</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

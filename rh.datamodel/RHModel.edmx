@@ -1,0 +1,1942 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RHModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="RHModelStoreContainer">
+    <EntitySet Name="Funcionarios" EntityType="RHModel.Store.Funcionarios" store:Type="Tables" Schema="grh" />
+    <EntitySet Name="ValoresDosIndice" EntityType="RHModel.Store.ValoresDosIndice" store:Type="Tables" Schema="grh" />
+    <EntitySet Name="Cargos" EntityType="RHModel.Store.Cargos" store:Type="Tables" Schema="grh" />
+    <EntitySet Name="Carreiras" EntityType="RHModel.Store.Carreiras" store:Type="Tables" Schema="grh" />
+    <EntitySet Name="AfectacoesSalariais" EntityType="RHModel.Store.AfectacoesSalariais" store:Type="Tables" Schema="grh" />
+    <EntitySet Name="Paises" EntityType="RHModel.Store.Paises" store:Type="Tables" Schema="grh" />
+    <EntitySet Name="Comunas" EntityType="RHModel.Store.Comunas" store:Type="Tables" Schema="grh" />
+    <EntitySet Name="Municipios" EntityType="RHModel.Store.Municipios" store:Type="Tables" Schema="grh" />
+    <EntitySet Name="Provincias" EntityType="RHModel.Store.Provincias" store:Type="Tables" Schema="grh" />
+    <EntitySet Name="HabilitacoesLiterarias" EntityType="RHModel.Store.HabilitacoesLiterarias" store:Type="Tables" Schema="grh" />
+    <EntitySet Name="AreasDeTrabalho" EntityType="RHModel.Store.AreasDeTrabalho" store:Type="Tables" Schema="grh" />
+    <EntitySet Name="Actividades" EntityType="RHModel.Store.Actividades" store:Type="Tables" Schema="grh" />
+    <EntitySet Name="Actualizacoes" EntityType="RHModel.Store.Actualizacoes" store:Type="Tables" Schema="grh" />
+    <EntitySet Name="RegistosDiarios" EntityType="RHModel.Store.RegistosDiarios" store:Type="Tables" Schema="grh" />
+    <EntitySet Name="Salarios" EntityType="RHModel.Store.Salarios" store:Type="Tables" Schema="grh" />
+    <EntitySet Name="VencimentosSalariais" EntityType="RHModel.Store.VencimentosSalariais" store:Type="Tables" Schema="grh" />
+    <EntitySet Name="Credenciais" EntityType="RHModel.Store.Credenciais" store:Type="Tables" Schema="grh" />
+    <EntitySet Name="AreasDeTrabalho_Direccao" EntityType="RHModel.Store.AreasDeTrabalho_Direccao" store:Type="Tables" Schema="grh" />
+    <EntitySet Name="AreasDeTrabalho_Departamento" EntityType="RHModel.Store.AreasDeTrabalho_Departamento" store:Type="Tables" Schema="grh" />
+    <EntitySet Name="AreasDeTrabalho_Seccao" EntityType="RHModel.Store.AreasDeTrabalho_Seccao" store:Type="Tables" Schema="grh" />
+    <EntitySet Name="AfectacoesSalariais_AfectacaoDeFuncionario" EntityType="RHModel.Store.AfectacoesSalariais_AfectacaoDeFuncionario" store:Type="Tables" Schema="grh" />
+    <EntitySet Name="AfectacoesSalariais_AfectacaoDeCargo" EntityType="RHModel.Store.AfectacoesSalariais_AfectacaoDeCargo" store:Type="Tables" Schema="grh" />
+    <EntitySet Name="AfectacoesSalariais_AfectacaoDeCarreira" EntityType="RHModel.Store.AfectacoesSalariais_AfectacaoDeCarreira" store:Type="Tables" Schema="grh" />
+    <EntitySet Name="AfectacoesSalariais_AfectacaoDeHabilitacaoLiteraria" EntityType="RHModel.Store.AfectacoesSalariais_AfectacaoDeHabilitacaoLiteraria" store:Type="Tables" Schema="grh" />
+    <EntitySet Name="AfectacoesSalariais_Falta" EntityType="RHModel.Store.AfectacoesSalariais_Falta" store:Type="Tables" Schema="grh" />
+    <EntitySet Name="ActividadeFuncionario" EntityType="RHModel.Store.ActividadeFuncionario" store:Type="Tables" Schema="grh" />
+    <EntitySet Name="ActividadeCargo" EntityType="RHModel.Store.ActividadeCargo" store:Type="Tables" Schema="grh" />
+    <AssociationSet Name="CargoValorDoIndice" Association="RHModel.Store.CargoValorDoIndice">
+      <End Role="Cargo" EntitySet="Cargos" />
+      <End Role="ValorDoIndice" EntitySet="ValoresDosIndice" />
+    </AssociationSet>
+    <AssociationSet Name="CarreiraValorDoIndice" Association="RHModel.Store.CarreiraValorDoIndice">
+      <End Role="Carreira" EntitySet="Carreiras" />
+      <End Role="ValorDoIndice" EntitySet="ValoresDosIndice" />
+    </AssociationSet>
+    <AssociationSet Name="PaisProvincia" Association="RHModel.Store.PaisProvincia">
+      <End Role="Pais" EntitySet="Paises" />
+      <End Role="Provincia" EntitySet="Provincias" />
+    </AssociationSet>
+    <AssociationSet Name="MunicipioComuna" Association="RHModel.Store.MunicipioComuna">
+      <End Role="Municipio" EntitySet="Municipios" />
+      <End Role="Comuna" EntitySet="Comunas" />
+    </AssociationSet>
+    <AssociationSet Name="ProvinciaMunicipio" Association="RHModel.Store.ProvinciaMunicipio">
+      <End Role="Provincia" EntitySet="Provincias" />
+      <End Role="Municipio" EntitySet="Municipios" />
+    </AssociationSet>
+    <AssociationSet Name="FuncionarioCargo" Association="RHModel.Store.FuncionarioCargo">
+      <End Role="Funcionario" EntitySet="Funcionarios" />
+      <End Role="Cargo" EntitySet="Cargos" />
+    </AssociationSet>
+    <AssociationSet Name="FuncionarioCarreira" Association="RHModel.Store.FuncionarioCarreira">
+      <End Role="Funcionario" EntitySet="Funcionarios" />
+      <End Role="Carreira" EntitySet="Carreiras" />
+    </AssociationSet>
+    <AssociationSet Name="FuncionarioHabilitacaoLiteraria" Association="RHModel.Store.FuncionarioHabilitacaoLiteraria">
+      <End Role="Funcionario" EntitySet="Funcionarios" />
+      <End Role="HabilitacaoLiteraria" EntitySet="HabilitacoesLiterarias" />
+    </AssociationSet>
+    <AssociationSet Name="FuncionarioAreaDeTrabalho" Association="RHModel.Store.FuncionarioAreaDeTrabalho">
+      <End Role="Funcionario" EntitySet="Funcionarios" />
+      <End Role="AreaDeTrabalho" EntitySet="AreasDeTrabalho" />
+    </AssociationSet>
+    <AssociationSet Name="DireccaoDepartamento" Association="RHModel.Store.DireccaoDepartamento">
+      <End Role="Direccao" EntitySet="AreasDeTrabalho_Direccao" />
+      <End Role="Departamento" EntitySet="AreasDeTrabalho_Departamento" />
+    </AssociationSet>
+    <AssociationSet Name="DireccaoDireccao" Association="RHModel.Store.DireccaoDireccao">
+      <End Role="Direccao" EntitySet="AreasDeTrabalho_Direccao" />
+      <End Role="Direccao1" EntitySet="AreasDeTrabalho_Direccao" />
+    </AssociationSet>
+    <AssociationSet Name="DepartamentoSeccao" Association="RHModel.Store.DepartamentoSeccao">
+      <End Role="Departamento" EntitySet="AreasDeTrabalho_Departamento" />
+      <End Role="Seccao" EntitySet="AreasDeTrabalho_Seccao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActividadeFuncionario_Actividade" Association="RHModel.Store.FK_ActividadeFuncionario_Actividade">
+      <End Role="Actividade" EntitySet="Actividades" />
+      <End Role="ActividadeFuncionario" EntitySet="ActividadeFuncionario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActividadeFuncionario_Funcionario" Association="RHModel.Store.FK_ActividadeFuncionario_Funcionario">
+      <End Role="Funcionario" EntitySet="Funcionarios" />
+      <End Role="ActividadeFuncionario" EntitySet="ActividadeFuncionario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActividadeCargo_Actividade" Association="RHModel.Store.FK_ActividadeCargo_Actividade">
+      <End Role="Actividade" EntitySet="Actividades" />
+      <End Role="ActividadeCargo" EntitySet="ActividadeCargo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ActividadeCargo_Cargo" Association="RHModel.Store.FK_ActividadeCargo_Cargo">
+      <End Role="Cargo" EntitySet="Cargos" />
+      <End Role="ActividadeCargo" EntitySet="ActividadeCargo" />
+    </AssociationSet>
+    <AssociationSet Name="ActualizacaoFuncionario" Association="RHModel.Store.ActualizacaoFuncionario">
+      <End Role="Actualizacao" EntitySet="Actualizacoes" />
+      <End Role="Funcionario" EntitySet="Funcionarios" />
+    </AssociationSet>
+    <AssociationSet Name="RegistoDiarioFuncionario" Association="RHModel.Store.RegistoDiarioFuncionario">
+      <End Role="RegistoDiario" EntitySet="RegistosDiarios" />
+      <End Role="Funcionario" EntitySet="Funcionarios" />
+    </AssociationSet>
+    <AssociationSet Name="AfectacaoDeFuncionarioFuncionario" Association="RHModel.Store.AfectacaoDeFuncionarioFuncionario">
+      <End Role="AfectacaoDeFuncionario" EntitySet="AfectacoesSalariais_AfectacaoDeFuncionario" />
+      <End Role="Funcionario" EntitySet="Funcionarios" />
+    </AssociationSet>
+    <AssociationSet Name="AfectacaoDeCargoCargo" Association="RHModel.Store.AfectacaoDeCargoCargo">
+      <End Role="AfectacaoDeCargo" EntitySet="AfectacoesSalariais_AfectacaoDeCargo" />
+      <End Role="Cargo" EntitySet="Cargos" />
+    </AssociationSet>
+    <AssociationSet Name="AfectacaoDeCarreiraCarreira" Association="RHModel.Store.AfectacaoDeCarreiraCarreira">
+      <End Role="AfectacaoDeCarreira" EntitySet="AfectacoesSalariais_AfectacaoDeCarreira" />
+      <End Role="Carreira" EntitySet="Carreiras" />
+    </AssociationSet>
+    <AssociationSet Name="AfectacaoDeHabilitacaoLiterariaHabilitacaoLiteraria" Association="RHModel.Store.AfectacaoDeHabilitacaoLiterariaHabilitacaoLiteraria">
+      <End Role="AfectacaoDeHabilitacaoLiteraria" EntitySet="AfectacoesSalariais_AfectacaoDeHabilitacaoLiteraria" />
+      <End Role="HabilitacaoLiteraria" EntitySet="HabilitacoesLiterarias" />
+    </AssociationSet>
+    <AssociationSet Name="VencimentoSalarialSalario" Association="RHModel.Store.VencimentoSalarialSalario">
+      <End Role="VencimentoSalarial" EntitySet="VencimentosSalariais" />
+      <End Role="Salario" EntitySet="Salarios" />
+    </AssociationSet>
+    <AssociationSet Name="SalarioFuncionario" Association="RHModel.Store.SalarioFuncionario">
+      <End Role="Salario" EntitySet="Salarios" />
+      <End Role="Funcionario" EntitySet="Funcionarios" />
+    </AssociationSet>
+    <AssociationSet Name="CredencialFuncionario" Association="RHModel.Store.CredencialFuncionario">
+      <End Role="Credencial" EntitySet="Credenciais" />
+      <End Role="Funcionario" EntitySet="Funcionarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Direccao_inherits_AreaDeTrabalho" Association="RHModel.Store.FK_Direccao_inherits_AreaDeTrabalho">
+      <End Role="AreaDeTrabalho" EntitySet="AreasDeTrabalho" />
+      <End Role="Direccao" EntitySet="AreasDeTrabalho_Direccao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Departamento_inherits_AreaDeTrabalho" Association="RHModel.Store.FK_Departamento_inherits_AreaDeTrabalho">
+      <End Role="AreaDeTrabalho" EntitySet="AreasDeTrabalho" />
+      <End Role="Departamento" EntitySet="AreasDeTrabalho_Departamento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Seccao_inherits_AreaDeTrabalho" Association="RHModel.Store.FK_Seccao_inherits_AreaDeTrabalho">
+      <End Role="AreaDeTrabalho" EntitySet="AreasDeTrabalho" />
+      <End Role="Seccao" EntitySet="AreasDeTrabalho_Seccao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AfectacaoDeFuncionario_inherits_AfectacaoSalarial" Association="RHModel.Store.FK_AfectacaoDeFuncionario_inherits_AfectacaoSalarial">
+      <End Role="AfectacaoSalarial" EntitySet="AfectacoesSalariais" />
+      <End Role="AfectacaoDeFuncionario" EntitySet="AfectacoesSalariais_AfectacaoDeFuncionario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AfectacaoDeCargo_inherits_AfectacaoSalarial" Association="RHModel.Store.FK_AfectacaoDeCargo_inherits_AfectacaoSalarial">
+      <End Role="AfectacaoSalarial" EntitySet="AfectacoesSalariais" />
+      <End Role="AfectacaoDeCargo" EntitySet="AfectacoesSalariais_AfectacaoDeCargo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AfectacaoDeCarreira_inherits_AfectacaoSalarial" Association="RHModel.Store.FK_AfectacaoDeCarreira_inherits_AfectacaoSalarial">
+      <End Role="AfectacaoSalarial" EntitySet="AfectacoesSalariais" />
+      <End Role="AfectacaoDeCarreira" EntitySet="AfectacoesSalariais_AfectacaoDeCarreira" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AfectacaoDeHabilitacaoLiteraria_inherits_AfectacaoSalarial" Association="RHModel.Store.FK_AfectacaoDeHabilitacaoLiteraria_inherits_AfectacaoSalarial">
+      <End Role="AfectacaoSalarial" EntitySet="AfectacoesSalariais" />
+      <End Role="AfectacaoDeHabilitacaoLiteraria" EntitySet="AfectacoesSalariais_AfectacaoDeHabilitacaoLiteraria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Falta_inherits_AfectacaoDeFuncionario" Association="RHModel.Store.FK_Falta_inherits_AfectacaoDeFuncionario">
+      <End Role="AfectacaoDeFuncionario" EntitySet="AfectacoesSalariais_AfectacaoDeFuncionario" />
+      <End Role="Falta" EntitySet="AfectacoesSalariais_Falta" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Funcionarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Foto_Nome" Type="nvarchar" Nullable="false" DefaultValue="" MaxLength="128" />
+    <Property Name="Foto_URI" Type="nvarchar" Nullable="false" DefaultValue="" MaxLength="1024" />
+    <Property Name="Foto_MimeType" Type="nvarchar" Nullable="false" DefaultValue="" MaxLength="64" />
+    <Property Name="DadosPessoais_DataDeNascimento" Type="datetime" Nullable="false" />
+    <Property Name="DadosPessoais_EstadoCivil" Type="int" Nullable="false" />
+    <Property Name="DadosPessoais_Genero" Type="int" Nullable="false" />
+    <Property Name="DadosPessoais_Nome" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="DadosPessoais_NomeDaMae" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="DadosPessoais_NomeDoPai" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="DadosPessoais_Identificacao_Tipo" Type="int" Nullable="false" />
+    <Property Name="DadosPessoais_Identificacao_DataDeEmissao" Type="datetime" Nullable="false" />
+    <Property Name="DadosPessoais_Identificacao_ValidoAte" Type="datetime" Nullable="true" />
+    <Property Name="DadosPessoais_Identificacao_Numero" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="DadosPessoais_Identificacao_EmitidoEm" Type="nvarchar" Nullable="false" MaxLength="32" />
+    <Property Name="DadosPessoais_Identificacao_URI" Type="nvarchar" Nullable="true" MaxLength="256" />
+    <Property Name="DadosPessoais_Identificacao_Observacoes" Type="nvarchar" Nullable="false" DefaultValue="" MaxLength="1024" />
+    <Property Name="DadosPessoais_Contacto_Telefone01" Type="nvarchar" Nullable="true" MaxLength="32" />
+    <Property Name="DadosPessoais_Contacto_Telefone02" Type="nvarchar" Nullable="true" MaxLength="32" />
+    <Property Name="DadosPessoais_Contacto_Email" Type="nvarchar" Nullable="true" MaxLength="64" />
+    <Property Name="DadosPessoais_Endereco_CodigoDaRegiao" Type="nvarchar" Nullable="false" DefaultValue="024-041900" MaxLength="32" />
+    <Property Name="DadosPessoais_Endereco_Bloco" Type="nvarchar" Nullable="true" MaxLength="64" />
+    <Property Name="DadosPessoais_Endereco_Predio" Type="nvarchar" Nullable="true" MaxLength="64" />
+    <Property Name="DadosPessoais_Endereco_Rua" Type="nvarchar" Nullable="true" MaxLength="64" />
+    <Property Name="DadosPessoais_Endereco_Andar" Type="nvarchar" Nullable="true" MaxLength="64" />
+    <Property Name="DadosPessoais_Endereco_Numero" Type="nvarchar" Nullable="true" MaxLength="32" />
+    <Property Name="DadosPessoais_Endereco_Bairro" Type="nvarchar" Nullable="true" MaxLength="64" />
+    <Property Name="DadosPessoais_CodigoNacionalidade" Type="nvarchar" Nullable="false" DefaultValue="024" MaxLength="32" />
+    <Property Name="DadosPessoais_CodigoNaturalidade" Type="nvarchar" Nullable="false" DefaultValue="024-041900" MaxLength="32" />
+    <Property Name="Contrato_Tipo" Type="int" Nullable="false" />
+    <Property Name="Contrato_ClasseDeServico" Type="int" Nullable="false" />
+    <Property Name="Contrato_DataInicial" Type="datetime" Nullable="false" />
+    <Property Name="Contrato_DataFinal" Type="datetime" Nullable="true" />
+    <Property Name="Contrato_Numero" Type="nvarchar" Nullable="false" MaxLength="32" />
+    <Property Name="AreaId" Type="int" Nullable="false" />
+    <Property Name="CargoId" Type="int" Nullable="false" />
+    <Property Name="CarreiraId" Type="int" Nullable="false" />
+    <Property Name="HabilitacaoLiterariaId" Type="int" Nullable="false" />
+    <Property Name="Funcao" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="ValoresDosIndice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Designacao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Valor" Type="decimal" Nullable="false" Precision="19" Scale="6" />
+  </EntityType>
+  <EntityType Name="Cargos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Designacao" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="EsturcturaCargo" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Indice" Type="decimal" Nullable="false" Precision="19" Scale="6" />
+    <Property Name="ValorDoIndiceId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Carreiras">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GrupoDePessoal" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Categoria" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Indice" Type="decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="ValorDoIndiceId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AfectacoesSalariais">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Designacao" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="DataInicial" Type="datetime" Nullable="false" />
+    <Property Name="DataFinal" Type="datetime" Nullable="true" />
+    <Property Name="Tipo" Type="int" Nullable="false" />
+    <Property Name="Valor" Type="decimal" Nullable="false" Precision="19" Scale="6" />
+    <Property Name="Descricao" Type="nvarchar" Nullable="false" DefaultValue="" MaxLength="1024" />
+  </EntityType>
+  <EntityType Name="Paises">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="nvarchar" Nullable="false" MaxLength="32" />
+    <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Region" Type="nvarchar" Nullable="false" DefaultValue="[NÃO ESPECIFICADA]" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="Comunas">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="nvarchar" Nullable="false" MaxLength="32" />
+    <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="MunicipioCodigo" Type="nvarchar" Nullable="false" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="Municipios">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="nvarchar" Nullable="false" MaxLength="32" />
+    <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="ProvinciaCodigo" Type="nvarchar" Nullable="false" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="Provincias">
+    <Key>
+      <PropertyRef Name="Codigo" />
+    </Key>
+    <Property Name="Codigo" Type="nvarchar" Nullable="false" MaxLength="32" />
+    <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="PaisCodigo" Type="nvarchar" Nullable="false" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="HabilitacoesLiterarias">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Designacao" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="AreasDeTrabalho">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Nome" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Siglas" Type="nvarchar" Nullable="false" MaxLength="16" />
+  </EntityType>
+  <EntityType Name="Actividades">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Designacao" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Descricao" Type="nvarchar" Nullable="false" MaxLength="1024" />
+    <Property Name="DataDeInicio" Type="datetime" Nullable="false" />
+    <Property Name="DataDeFim" Type="datetime" Nullable="false" />
+    <Property Name="DiaTudo" Type="bit" Nullable="false" />
+    <Property Name="Tipo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RegraDeRecurrencia_Quantidade" Type="int" Nullable="false" DefaultValue="2147483647" />
+    <Property Name="RegraDeRecurrencia_Fim" Type="datetime" Nullable="false" />
+    <Property Name="RegraDeRecurrencia_Duracao" Type="bigint" Nullable="false" />
+    <Property Name="RegraDeRecurrencia_Intervalo" Type="int" Nullable="false" DefaultValue="1" />
+    <Property Name="RegraDeRecurrencia_Inicio" Type="datetime" Nullable="true" />
+    <Property Name="RegraDeRecurrencia_Activa" Type="bit" Nullable="false" />
+    <Property Name="RegraDeRecurrencia_SemDataFinal" Type="bit" Nullable="false" />
+    <Property Name="RegraDeRecurrencia_Frequencia" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Actualizacoes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FuncionarioId" Type="int" Nullable="false" />
+    <Property Name="DadosIniciais_AreaId" Type="int" Nullable="true" />
+    <Property Name="DadosIniciais_CargoId" Type="int" Nullable="true" />
+    <Property Name="DadosIniciais_CarreiraId" Type="int" Nullable="true" />
+    <Property Name="DadosIniciais_HabilitacaoLiterariaId" Type="int" Nullable="true" />
+    <Property Name="DadosFinais_AreaId" Type="int" Nullable="true" />
+    <Property Name="DadosFinais_CargoId" Type="int" Nullable="true" />
+    <Property Name="DadosFinais_CarreiraId" Type="int" Nullable="true" />
+    <Property Name="DadosFinais_HabilitacaoLiterariaId" Type="int" Nullable="true" />
+    <Property Name="Oservacoes" Type="nvarchar" Nullable="false" DefaultValue="" MaxLength="1024" />
+  </EntityType>
+  <EntityType Name="RegistosDiarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FuncionarioId" Type="int" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+    <Property Name="HoraDeEntrada" Type="datetime" Nullable="true" />
+    <Property Name="HoraDeSaida" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Salarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FuncionarioId" Type="int" Nullable="false" />
+    <Property Name="VencimentoSalarialId" Type="int" Nullable="false" />
+    <Property Name="Valor" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Detalhes" Type="nvarchar" Nullable="false" DefaultValue="" MaxLength="1024" />
+  </EntityType>
+  <EntityType Name="VencimentosSalariais">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DataDeCriacao" Type="datetime" Nullable="false" />
+    <Property Name="PeriodoDeAnalise_Inicio" Type="datetime" Nullable="false" />
+    <Property Name="PeriodoDeAnalise_Fim" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Credenciais">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NivelDeAcesso" Type="int" Nullable="false" />
+    <Property Name="Login" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="Senha" Type="nvarchar" Nullable="false" MaxLength="512" />
+    <Property Name="DataDeValidade" Type="datetime" Nullable="true" />
+    <Property Name="Estado" Type="int" Nullable="false" />
+    <Property Name="Funcionario_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AreasDeTrabalho_Direccao">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="DireccaoSuperiorId" Type="int" Nullable="true" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AreasDeTrabalho_Departamento">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="DireccaoId" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AreasDeTrabalho_Seccao">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="DepartamentoId" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AfectacoesSalariais_AfectacaoDeFuncionario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="FuncionarioId" Type="int" Nullable="false" />
+    <Property Name="Manual" Type="bit" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AfectacoesSalariais_AfectacaoDeCargo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="CargoId" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AfectacoesSalariais_AfectacaoDeCarreira">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="CarreiraId" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AfectacoesSalariais_AfectacaoDeHabilitacaoLiteraria">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="HabilitacaoLiterariaId" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AfectacoesSalariais_Falta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Justificada" Type="bit" Nullable="false" />
+    <Property Name="Remuneracao" Type="bit" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ActividadeFuncionario">
+    <Key>
+      <PropertyRef Name="Actividades_Id" />
+      <PropertyRef Name="Funcionarios_Id" />
+    </Key>
+    <Property Name="Actividades_Id" Type="int" Nullable="false" />
+    <Property Name="Funcionarios_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ActividadeCargo">
+    <Key>
+      <PropertyRef Name="Actividades_Id" />
+      <PropertyRef Name="Cargos_Id" />
+    </Key>
+    <Property Name="Actividades_Id" Type="int" Nullable="false" />
+    <Property Name="Cargos_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="CargoValorDoIndice">
+    <End Role="Cargo" Type="RHModel.Store.Cargos" Multiplicity="*" />
+    <End Role="ValorDoIndice" Type="RHModel.Store.ValoresDosIndice" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ValorDoIndice">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cargo">
+        <PropertyRef Name="ValorDoIndiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CarreiraValorDoIndice">
+    <End Role="Carreira" Type="RHModel.Store.Carreiras" Multiplicity="*" />
+    <End Role="ValorDoIndice" Type="RHModel.Store.ValoresDosIndice" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ValorDoIndice">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Carreira">
+        <PropertyRef Name="ValorDoIndiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PaisProvincia">
+    <End Role="Pais" Type="RHModel.Store.Paises" Multiplicity="1" />
+    <End Role="Provincia" Type="RHModel.Store.Provincias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pais">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="Provincia">
+        <PropertyRef Name="PaisCodigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MunicipioComuna">
+    <End Role="Municipio" Type="RHModel.Store.Municipios" Multiplicity="1" />
+    <End Role="Comuna" Type="RHModel.Store.Comunas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipio">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="Comuna">
+        <PropertyRef Name="MunicipioCodigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProvinciaMunicipio">
+    <End Role="Provincia" Type="RHModel.Store.Provincias" Multiplicity="1" />
+    <End Role="Municipio" Type="RHModel.Store.Municipios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincia">
+        <PropertyRef Name="Codigo" />
+      </Principal>
+      <Dependent Role="Municipio">
+        <PropertyRef Name="ProvinciaCodigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FuncionarioCargo">
+    <End Role="Funcionario" Type="RHModel.Store.Funcionarios" Multiplicity="*" />
+    <End Role="Cargo" Type="RHModel.Store.Cargos" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Cargo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Funcionario">
+        <PropertyRef Name="CargoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FuncionarioCarreira">
+    <End Role="Funcionario" Type="RHModel.Store.Funcionarios" Multiplicity="*" />
+    <End Role="Carreira" Type="RHModel.Store.Carreiras" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Carreira">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Funcionario">
+        <PropertyRef Name="CarreiraId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FuncionarioHabilitacaoLiteraria">
+    <End Role="Funcionario" Type="RHModel.Store.Funcionarios" Multiplicity="*" />
+    <End Role="HabilitacaoLiteraria" Type="RHModel.Store.HabilitacoesLiterarias" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="HabilitacaoLiteraria">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Funcionario">
+        <PropertyRef Name="HabilitacaoLiterariaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FuncionarioAreaDeTrabalho">
+    <End Role="Funcionario" Type="RHModel.Store.Funcionarios" Multiplicity="*" />
+    <End Role="AreaDeTrabalho" Type="RHModel.Store.AreasDeTrabalho" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="AreaDeTrabalho">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Funcionario">
+        <PropertyRef Name="AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DireccaoDepartamento">
+    <End Role="Direccao" Type="RHModel.Store.AreasDeTrabalho_Direccao" Multiplicity="1" />
+    <End Role="Departamento" Type="RHModel.Store.AreasDeTrabalho_Departamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Direccao">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Departamento">
+        <PropertyRef Name="DireccaoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DireccaoDireccao">
+    <End Role="Direccao" Type="RHModel.Store.AreasDeTrabalho_Direccao" Multiplicity="0..1" />
+    <End Role="Direccao1" Type="RHModel.Store.AreasDeTrabalho_Direccao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Direccao">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Direccao1">
+        <PropertyRef Name="DireccaoSuperiorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DepartamentoSeccao">
+    <End Role="Departamento" Type="RHModel.Store.AreasDeTrabalho_Departamento" Multiplicity="1" />
+    <End Role="Seccao" Type="RHModel.Store.AreasDeTrabalho_Seccao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Seccao">
+        <PropertyRef Name="DepartamentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ActualizacaoFuncionario">
+    <End Role="Actualizacao" Type="RHModel.Store.Actualizacoes" Multiplicity="*" />
+    <End Role="Funcionario" Type="RHModel.Store.Funcionarios" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Actualizacao">
+        <PropertyRef Name="FuncionarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RegistoDiarioFuncionario">
+    <End Role="RegistoDiario" Type="RHModel.Store.RegistosDiarios" Multiplicity="*" />
+    <End Role="Funcionario" Type="RHModel.Store.Funcionarios" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RegistoDiario">
+        <PropertyRef Name="FuncionarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AfectacaoDeFuncionarioFuncionario">
+    <End Role="AfectacaoDeFuncionario" Type="RHModel.Store.AfectacoesSalariais_AfectacaoDeFuncionario" Multiplicity="*" />
+    <End Role="Funcionario" Type="RHModel.Store.Funcionarios" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AfectacaoDeFuncionario">
+        <PropertyRef Name="FuncionarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AfectacaoDeCargoCargo">
+    <End Role="AfectacaoDeCargo" Type="RHModel.Store.AfectacoesSalariais_AfectacaoDeCargo" Multiplicity="*" />
+    <End Role="Cargo" Type="RHModel.Store.Cargos" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Cargo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AfectacaoDeCargo">
+        <PropertyRef Name="CargoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AfectacaoDeCarreiraCarreira">
+    <End Role="AfectacaoDeCarreira" Type="RHModel.Store.AfectacoesSalariais_AfectacaoDeCarreira" Multiplicity="*" />
+    <End Role="Carreira" Type="RHModel.Store.Carreiras" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Carreira">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AfectacaoDeCarreira">
+        <PropertyRef Name="CarreiraId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AfectacaoDeHabilitacaoLiterariaHabilitacaoLiteraria">
+    <End Role="AfectacaoDeHabilitacaoLiteraria" Type="RHModel.Store.AfectacoesSalariais_AfectacaoDeHabilitacaoLiteraria" Multiplicity="*" />
+    <End Role="HabilitacaoLiteraria" Type="RHModel.Store.HabilitacoesLiterarias" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="HabilitacaoLiteraria">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AfectacaoDeHabilitacaoLiteraria">
+        <PropertyRef Name="HabilitacaoLiterariaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VencimentoSalarialSalario">
+    <End Role="VencimentoSalarial" Type="RHModel.Store.VencimentosSalariais" Multiplicity="1" />
+    <End Role="Salario" Type="RHModel.Store.Salarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VencimentoSalarial">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Salario">
+        <PropertyRef Name="VencimentoSalarialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SalarioFuncionario">
+    <End Role="Salario" Type="RHModel.Store.Salarios" Multiplicity="*" />
+    <End Role="Funcionario" Type="RHModel.Store.Funcionarios" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Salario">
+        <PropertyRef Name="FuncionarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CredencialFuncionario">
+    <End Role="Credencial" Type="RHModel.Store.Credenciais" Multiplicity="*" />
+    <End Role="Funcionario" Type="RHModel.Store.Funcionarios" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Credencial">
+        <PropertyRef Name="Funcionario_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActividadeFuncionario_Actividade">
+    <End Role="Actividade" Type="RHModel.Store.Actividades" Multiplicity="1" />
+    <End Role="ActividadeFuncionario" Type="RHModel.Store.ActividadeFuncionario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actividade">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActividadeFuncionario">
+        <PropertyRef Name="Actividades_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActividadeFuncionario_Funcionario">
+    <End Role="ActividadeFuncionario" Type="RHModel.Store.ActividadeFuncionario" Multiplicity="*" />
+    <End Role="Funcionario" Type="RHModel.Store.Funcionarios" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActividadeFuncionario">
+        <PropertyRef Name="Funcionarios_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActividadeCargo_Actividade">
+    <End Role="Actividade" Type="RHModel.Store.Actividades" Multiplicity="1" />
+    <End Role="ActividadeCargo" Type="RHModel.Store.ActividadeCargo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actividade">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActividadeCargo">
+        <PropertyRef Name="Actividades_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ActividadeCargo_Cargo">
+    <End Role="ActividadeCargo" Type="RHModel.Store.ActividadeCargo" Multiplicity="*" />
+    <End Role="Cargo" Type="RHModel.Store.Cargos" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Cargo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActividadeCargo">
+        <PropertyRef Name="Cargos_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Direccao_inherits_AreaDeTrabalho">
+    <End Role="AreaDeTrabalho" Type="RHModel.Store.AreasDeTrabalho" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Direccao" Type="RHModel.Store.AreasDeTrabalho_Direccao" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="AreaDeTrabalho">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Direccao">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Departamento_inherits_AreaDeTrabalho">
+    <End Role="AreaDeTrabalho" Type="RHModel.Store.AreasDeTrabalho" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Departamento" Type="RHModel.Store.AreasDeTrabalho_Departamento" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="AreaDeTrabalho">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Departamento">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Seccao_inherits_AreaDeTrabalho">
+    <End Role="AreaDeTrabalho" Type="RHModel.Store.AreasDeTrabalho" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Seccao" Type="RHModel.Store.AreasDeTrabalho_Seccao" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="AreaDeTrabalho">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Seccao">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AfectacaoDeFuncionario_inherits_AfectacaoSalarial">
+    <End Role="AfectacaoSalarial" Type="RHModel.Store.AfectacoesSalariais" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AfectacaoDeFuncionario" Type="RHModel.Store.AfectacoesSalariais_AfectacaoDeFuncionario" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="AfectacaoSalarial">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AfectacaoDeFuncionario">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AfectacaoDeCargo_inherits_AfectacaoSalarial">
+    <End Role="AfectacaoSalarial" Type="RHModel.Store.AfectacoesSalariais" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AfectacaoDeCargo" Type="RHModel.Store.AfectacoesSalariais_AfectacaoDeCargo" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="AfectacaoSalarial">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AfectacaoDeCargo">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AfectacaoDeCarreira_inherits_AfectacaoSalarial">
+    <End Role="AfectacaoSalarial" Type="RHModel.Store.AfectacoesSalariais" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AfectacaoDeCarreira" Type="RHModel.Store.AfectacoesSalariais_AfectacaoDeCarreira" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="AfectacaoSalarial">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AfectacaoDeCarreira">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AfectacaoDeHabilitacaoLiteraria_inherits_AfectacaoSalarial">
+    <End Role="AfectacaoSalarial" Type="RHModel.Store.AfectacoesSalariais" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AfectacaoDeHabilitacaoLiteraria" Type="RHModel.Store.AfectacoesSalariais_AfectacaoDeHabilitacaoLiteraria" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="AfectacaoSalarial">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AfectacaoDeHabilitacaoLiteraria">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Falta_inherits_AfectacaoDeFuncionario">
+    <End Role="AfectacaoDeFuncionario" Type="RHModel.Store.AfectacoesSalariais_AfectacaoDeFuncionario" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Falta" Type="RHModel.Store.AfectacoesSalariais_Falta" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="AfectacaoDeFuncionario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Falta">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="RHModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="RHModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Funcionarios" EntityType="RHModel.Funcionario" />
+          <EntitySet Name="ValoresDosIndice" EntityType="RHModel.ValorDoIndice" />
+          <EntitySet Name="Cargos" EntityType="RHModel.Cargo" />
+          <EntitySet Name="Carreiras" EntityType="RHModel.Carreira" />
+          <AssociationSet Name="CargoValorDoIndice" Association="RHModel.CargoValorDoIndice">
+            <End Role="Cargo" EntitySet="Cargos" />
+            <End Role="ValorDoIndice" EntitySet="ValoresDosIndice" />
+          </AssociationSet>
+          <AssociationSet Name="CarreiraValorDoIndice" Association="RHModel.CarreiraValorDoIndice">
+            <End Role="Carreira" EntitySet="Carreiras" />
+            <End Role="ValorDoIndice" EntitySet="ValoresDosIndice" />
+          </AssociationSet>
+          <EntitySet Name="AfectacoesSalariais" EntityType="RHModel.AfectacaoSalarial" />
+          <EntitySet Name="Paises" EntityType="RHModel.Pais" />
+          <EntitySet Name="Comunas" EntityType="RHModel.Comuna" />
+          <EntitySet Name="Municipios" EntityType="RHModel.Municipio" />
+          <EntitySet Name="Provincias" EntityType="RHModel.Provincia" />
+          <AssociationSet Name="PaisProvincia" Association="RHModel.PaisProvincia">
+            <End Role="Pais" EntitySet="Paises" />
+            <End Role="Provincia" EntitySet="Provincias" />
+          </AssociationSet>
+          <AssociationSet Name="MunicipioComuna" Association="RHModel.MunicipioComuna">
+            <End Role="Municipio" EntitySet="Municipios" />
+            <End Role="Comuna" EntitySet="Comunas" />
+          </AssociationSet>
+          <AssociationSet Name="ProvinciaMunicipio" Association="RHModel.ProvinciaMunicipio">
+            <End Role="Provincia" EntitySet="Provincias" />
+            <End Role="Municipio" EntitySet="Municipios" />
+          </AssociationSet>
+          <EntitySet Name="HabilitacoesLiterarias" EntityType="RHModel.HabilitacaoLiteraria" />
+          <EntitySet Name="AreasDeTrabalho" EntityType="RHModel.AreaDeTrabalho" />
+          <AssociationSet Name="FuncionarioCargo" Association="RHModel.FuncionarioCargo">
+            <End Role="Funcionario" EntitySet="Funcionarios" />
+            <End Role="Cargo" EntitySet="Cargos" />
+          </AssociationSet>
+          <AssociationSet Name="FuncionarioCarreira" Association="RHModel.FuncionarioCarreira">
+            <End Role="Funcionario" EntitySet="Funcionarios" />
+            <End Role="Carreira" EntitySet="Carreiras" />
+          </AssociationSet>
+          <AssociationSet Name="FuncionarioHabilitacaoLiteraria" Association="RHModel.FuncionarioHabilitacaoLiteraria">
+            <End Role="Funcionario" EntitySet="Funcionarios" />
+            <End Role="HabilitacaoLiteraria" EntitySet="HabilitacoesLiterarias" />
+          </AssociationSet>
+          <AssociationSet Name="FuncionarioAreaDeTrabalho" Association="RHModel.FuncionarioAreaDeTrabalho">
+            <End Role="Funcionario" EntitySet="Funcionarios" />
+            <End Role="AreaDeTrabalho" EntitySet="AreasDeTrabalho" />
+          </AssociationSet>
+          <AssociationSet Name="DireccaoDepartamento" Association="RHModel.DireccaoDepartamento">
+            <End Role="Direccao" EntitySet="AreasDeTrabalho" />
+            <End Role="Departamento" EntitySet="AreasDeTrabalho" />
+          </AssociationSet>
+          <AssociationSet Name="DireccaoDireccao" Association="RHModel.DireccaoDireccao">
+            <End Role="Direccao" EntitySet="AreasDeTrabalho" />
+            <End Role="Direccao1" EntitySet="AreasDeTrabalho" />
+          </AssociationSet>
+          <AssociationSet Name="DepartamentoSeccao" Association="RHModel.DepartamentoSeccao">
+            <End Role="Departamento" EntitySet="AreasDeTrabalho" />
+            <End Role="Seccao" EntitySet="AreasDeTrabalho" />
+          </AssociationSet>
+          <EntitySet Name="Actividades" EntityType="RHModel.Actividade" />
+          <AssociationSet Name="ActividadeFuncionario" Association="RHModel.ActividadeFuncionario">
+            <End Role="Actividade" EntitySet="Actividades" />
+            <End Role="Funcionario" EntitySet="Funcionarios" />
+          </AssociationSet>
+          <AssociationSet Name="ActividadeCargo" Association="RHModel.ActividadeCargo">
+            <End Role="Actividade" EntitySet="Actividades" />
+            <End Role="Cargo" EntitySet="Cargos" />
+          </AssociationSet>
+          <EntitySet Name="Actualizacoes" EntityType="RHModel.Actualizacao" />
+          <AssociationSet Name="ActualizacaoFuncionario" Association="RHModel.ActualizacaoFuncionario">
+            <End Role="Actualizacao" EntitySet="Actualizacoes" />
+            <End Role="Funcionario" EntitySet="Funcionarios" />
+          </AssociationSet>
+          <EntitySet Name="RegistosDiarios" EntityType="RHModel.RegistoDiario" />
+          <AssociationSet Name="RegistoDiarioFuncionario" Association="RHModel.RegistoDiarioFuncionario">
+            <End Role="RegistoDiario" EntitySet="RegistosDiarios" />
+            <End Role="Funcionario" EntitySet="Funcionarios" />
+          </AssociationSet>
+          <EntitySet Name="Salarios" EntityType="RHModel.Salario" />
+          <AssociationSet Name="AfectacaoDeFuncionarioFuncionario" Association="RHModel.AfectacaoDeFuncionarioFuncionario">
+            <End Role="AfectacaoDeFuncionario" EntitySet="AfectacoesSalariais" />
+            <End Role="Funcionario" EntitySet="Funcionarios" />
+          </AssociationSet>
+          <AssociationSet Name="AfectacaoDeCargoCargo" Association="RHModel.AfectacaoDeCargoCargo">
+            <End Role="AfectacaoDeCargo" EntitySet="AfectacoesSalariais" />
+            <End Role="Cargo" EntitySet="Cargos" />
+          </AssociationSet>
+          <AssociationSet Name="AfectacaoDeCarreiraCarreira" Association="RHModel.AfectacaoDeCarreiraCarreira">
+            <End Role="AfectacaoDeCarreira" EntitySet="AfectacoesSalariais" />
+            <End Role="Carreira" EntitySet="Carreiras" />
+          </AssociationSet>
+          <AssociationSet Name="AfectacaoDeHabilitacaoLiterariaHabilitacaoLiteraria" Association="RHModel.AfectacaoDeHabilitacaoLiterariaHabilitacaoLiteraria">
+            <End Role="AfectacaoDeHabilitacaoLiteraria" EntitySet="AfectacoesSalariais" />
+            <End Role="HabilitacaoLiteraria" EntitySet="HabilitacoesLiterarias" />
+          </AssociationSet>
+          <EntitySet Name="VencimentosSalariais" EntityType="RHModel.VencimentoSalarial" />
+          <AssociationSet Name="VencimentoSalarialSalario" Association="RHModel.VencimentoSalarialSalario">
+            <End Role="VencimentoSalarial" EntitySet="VencimentosSalariais" />
+            <End Role="Salario" EntitySet="Salarios" />
+          </AssociationSet>
+          <AssociationSet Name="SalarioFuncionario" Association="RHModel.SalarioFuncionario">
+            <End Role="Salario" EntitySet="Salarios" />
+            <End Role="Funcionario" EntitySet="Funcionarios" />
+          </AssociationSet>
+          <EntitySet Name="Credenciais" EntityType="RHModel.Credencial" />
+          <AssociationSet Name="CredencialFuncionario" Association="RHModel.CredencialFuncionario">
+            <End Role="Credencial" EntitySet="Credenciais" />
+            <End Role="Funcionario" EntitySet="Funcionarios" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Funcionario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Foto" Type="RHModel.Ficheiro" Nullable="false" />
+          <Property Name="DadosPessoais" Type="RHModel.DadosPessoais" Nullable="false" />
+          <Property Name="Contrato" Type="RHModel.Contrato" Nullable="false" />
+          <NavigationProperty Name="Cargo" Relationship="RHModel.FuncionarioCargo" FromRole="Funcionario" ToRole="Cargo" />
+          <Property Name="AreaId" Type="Int32" Nullable="false" />
+          <Property Name="CargoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Carreira" Relationship="RHModel.FuncionarioCarreira" FromRole="Funcionario" ToRole="Carreira" />
+          <Property Name="CarreiraId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="HabilitacaoLiteraria" Relationship="RHModel.FuncionarioHabilitacaoLiteraria" FromRole="Funcionario" ToRole="HabilitacaoLiteraria" />
+          <Property Name="HabilitacaoLiterariaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Area" Relationship="RHModel.FuncionarioAreaDeTrabalho" FromRole="Funcionario" ToRole="AreaDeTrabalho" />
+          <Property Name="Funcao" Type="String" Nullable="false" MaxLength="128" />
+          <NavigationProperty Name="Actividades" Relationship="RHModel.ActividadeFuncionario" FromRole="Funcionario" ToRole="Actividade" />
+          <NavigationProperty Name="Actualizacoes" Relationship="RHModel.ActualizacaoFuncionario" FromRole="Funcionario" ToRole="Actualizacao" />
+          <NavigationProperty Name="RegistosDiarios" Relationship="RHModel.RegistoDiarioFuncionario" FromRole="Funcionario" ToRole="RegistoDiario" />
+          <NavigationProperty Name="Afectacoes" Relationship="RHModel.AfectacaoDeFuncionarioFuncionario" FromRole="Funcionario" ToRole="AfectacaoDeFuncionario" />
+          <NavigationProperty Name="Salarios" Relationship="RHModel.SalarioFuncionario" FromRole="Funcionario" ToRole="Salario" />
+          <NavigationProperty Name="Credencial" Relationship="RHModel.CredencialFuncionario" FromRole="Funcionario" ToRole="Credencial" />
+        </EntityType>
+        <EnumType Name="Genero">
+          <Member Name="FEMENINO" />
+          <Member Name="MASCULINO" />
+        </EnumType>
+        <EnumType Name="EstadoCivil">
+          <Member Name="SOLTEIRO" />
+          <Member Name="CASADO" />
+          <Member Name="DIVORCIADO" />
+          <Member Name="VIUVO" />
+          <Member Name="SEPARADO" />
+        </EnumType>
+        <EntityType Name="ValorDoIndice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Designacao" Type="String" Nullable="false" />
+          <Property Name="Valor" Type="Decimal" Nullable="false" Precision="19" Scale="6" />
+        </EntityType>
+        <EntityType Name="Cargo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Designacao" Type="String" Nullable="false" MaxLength="128" />
+          <Property Name="EsturcturaCargo" Type="String" Nullable="false" MaxLength="128" />
+          <Property Name="Indice" Type="Decimal" Nullable="false" Precision="19" Scale="6" />
+          <NavigationProperty Name="ValorDoIndice" Relationship="RHModel.CargoValorDoIndice" FromRole="Cargo" ToRole="ValorDoIndice" />
+          <Property Name="ValorDoIndiceId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Funcionarios" Relationship="RHModel.FuncionarioCargo" FromRole="Cargo" ToRole="Funcionario" />
+          <NavigationProperty Name="Actividades" Relationship="RHModel.ActividadeCargo" FromRole="Cargo" ToRole="Actividade" />
+          <NavigationProperty Name="Afectacoes" Relationship="RHModel.AfectacaoDeCargoCargo" FromRole="Cargo" ToRole="AfectacaoDeCargo" />
+        </EntityType>
+        <EntityType Name="Carreira">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GrupoDePessoal" Type="String" Nullable="false" MaxLength="128" />
+          <Property Name="Categoria" Type="String" Nullable="false" MaxLength="128" />
+          <Property Name="Indice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <NavigationProperty Name="ValorDoIndice" Relationship="RHModel.CarreiraValorDoIndice" FromRole="Carreira" ToRole="ValorDoIndice" />
+          <Property Name="ValorDoIndiceId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Funcionarios" Relationship="RHModel.FuncionarioCarreira" FromRole="Carreira" ToRole="Funcionario" />
+          <NavigationProperty Name="Afectacoes" Relationship="RHModel.AfectacaoDeCarreiraCarreira" FromRole="Carreira" ToRole="AfectacaoDeCarreira" />
+        </EntityType>
+        <Association Name="CargoValorDoIndice">
+          <End Type="RHModel.Cargo" Role="Cargo" Multiplicity="*" />
+          <End Type="RHModel.ValorDoIndice" Role="ValorDoIndice" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="ValorDoIndice">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cargo">
+              <PropertyRef Name="ValorDoIndiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CarreiraValorDoIndice">
+          <End Type="RHModel.Carreira" Role="Carreira" Multiplicity="*" />
+          <End Type="RHModel.ValorDoIndice" Role="ValorDoIndice" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="ValorDoIndice">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Carreira">
+              <PropertyRef Name="ValorDoIndiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AfectacaoSalarial">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Designacao" Type="String" Nullable="false" MaxLength="128" />
+          <Property Name="DataInicial" Type="DateTime" Nullable="false" />
+          <Property Name="DataFinal" Type="DateTime" Nullable="true" />
+          <Property Name="Tipo" Type="RHModel.TipoDeAfectacaoSalarial" Nullable="false" />
+          <Property Name="Valor" Type="Decimal" Nullable="false" Precision="19" Scale="6" />
+          <Property Name="Descricao" Type="String" Nullable="false" MaxLength="1024" DefaultValue="" />
+        </EntityType>
+        <EnumType Name="TipoDeAfectacaoSalarial" >
+          <Member Name="BASE_PERCENTAGEM" />
+          <Member Name="TOTAL_PERCENTAGEM" />
+          <Member Name="A_RECEBER_PERCENTAGEM" />
+          <Member Name="TAXA_FIXA" />
+        </EnumType>
+        <EntityType Name="AfectacaoDeFuncionario" BaseType="RHModel.AfectacaoSalarial" >
+          <NavigationProperty Name="Funcionario" Relationship="RHModel.AfectacaoDeFuncionarioFuncionario" FromRole="AfectacaoDeFuncionario" ToRole="Funcionario" />
+          <Property Name="FuncionarioId" Type="Int32" Nullable="false" />
+          <Property Name="Manual" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AfectacaoDeCargo" BaseType="RHModel.AfectacaoSalarial" >
+          <NavigationProperty Name="Cargo" Relationship="RHModel.AfectacaoDeCargoCargo" FromRole="AfectacaoDeCargo" ToRole="Cargo" />
+          <Property Name="CargoId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AfectacaoDeCarreira" BaseType="RHModel.AfectacaoSalarial" >
+          <NavigationProperty Name="Carreira" Relationship="RHModel.AfectacaoDeCarreiraCarreira" FromRole="AfectacaoDeCarreira" ToRole="Carreira" />
+          <Property Name="CarreiraId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EnumType Name="TipoDeContrato" >
+          <Member Name="TERMO_CERTO" Value="1" />
+          <Member Name="TITULO_DE_PROVIMENTO" Value="2" />
+          <Member Name="TITULO_DE_QUADRO" Value="3" />
+          <Member Name="TEMPO_DETERMINADO" Value="4" />
+          <Member Name="DE_TRABALHOS_ESPECIAS" Value="5" />
+          <Member Name="ESTRANGEIROS_NÃO_RESIDENTES" Value="6" />
+          <Member Name="SEM_ESPECIFICAR" Value="0" />
+        </EnumType>
+        <EntityType Name="Pais">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="String" Nullable="false" MaxLength="32" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="128" />
+          <Property Name="Region" Type="String" Nullable="false" DefaultValue="[NÃO ESPECIFICADA]" MaxLength="128" />
+          <NavigationProperty Name="Provincias" Relationship="RHModel.PaisProvincia" FromRole="Pais" ToRole="Provincia" />
+        </EntityType>
+        <EntityType Name="Comuna">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="String" Nullable="false" MaxLength="32" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="128" />
+          <Property Name="MunicipioCodigo" Type="String" Nullable="false" MaxLength="32" />
+          <NavigationProperty Name="Municipio" Relationship="RHModel.MunicipioComuna" FromRole="Comuna" ToRole="Municipio" />
+        </EntityType>
+        <EntityType Name="Municipio">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="String" Nullable="false" MaxLength="32" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="128" />
+          <Property Name="ProvinciaCodigo" Type="String" Nullable="false" MaxLength="32" />
+          <NavigationProperty Name="Comunas" Relationship="RHModel.MunicipioComuna" FromRole="Municipio" ToRole="Comuna" />
+          <NavigationProperty Name="Provincia" Relationship="RHModel.ProvinciaMunicipio" FromRole="Municipio" ToRole="Provincia" />
+        </EntityType>
+        <EntityType Name="Provincia">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="String" Nullable="false" MaxLength="32" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="128" />
+          <Property Name="PaisCodigo" Type="String" Nullable="false" MaxLength="32" />
+          <NavigationProperty Name="Pais" Relationship="RHModel.PaisProvincia" FromRole="Provincia" ToRole="Pais" />
+          <NavigationProperty Name="Municipios" Relationship="RHModel.ProvinciaMunicipio" FromRole="Provincia" ToRole="Municipio" />
+        </EntityType>
+        <Association Name="PaisProvincia">
+          <End Type="RHModel.Pais" Role="Pais" Multiplicity="1" />
+          <End Type="RHModel.Provincia" Role="Provincia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pais">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Provincia">
+              <PropertyRef Name="PaisCodigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MunicipioComuna">
+          <End Type="RHModel.Municipio" Role="Municipio" Multiplicity="1" />
+          <End Type="RHModel.Comuna" Role="Comuna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipio">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Comuna">
+              <PropertyRef Name="MunicipioCodigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProvinciaMunicipio">
+          <End Type="RHModel.Provincia" Role="Provincia" Multiplicity="1" />
+          <End Type="RHModel.Municipio" Role="Municipio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provincia">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Municipio">
+              <PropertyRef Name="ProvinciaCodigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="Documento" >
+          <Property Type="RHModel.TipoDeIdentificacao" Name="Tipo" Nullable="false" />
+          <Property Type="DateTime" Name="DataDeEmissao" Nullable="false" />
+          <Property Type="DateTime" Name="ValidoAte" Nullable="true" />
+          <Property Type="String" Name="Numero" Nullable="false" MaxLength="64" />
+          <Property Type="String" Name="EmitidoEm" Nullable="false" MaxLength="32" />
+          <Property Type="String" Name="URI" Nullable="true" MaxLength="256" />
+          <Property Type="String" Name="Observacoes" Nullable="false" DefaultValue="" MaxLength="1024" />
+        </ComplexType>
+        <EnumType Name="TipoDeIdentificacao" >
+          <Member Name="BI" />
+          <Member Name="PASSAPORTE" />
+          <Member Name="CARTAO_DE_RESIDENTE" />
+          <Member Name="OUTRA" />
+        </EnumType>
+        <ComplexType Name="DadosPessoais" >
+          <Property Type="DateTime" Name="DataDeNascimento" Nullable="false" />
+          <Property Type="RHModel.EstadoCivil" Name="EstadoCivil" Nullable="false" />
+          <Property Type="RHModel.Genero" Name="Genero" Nullable="false" />
+          <Property Type="String" Name="Nome" Nullable="false" MaxLength="128" />
+          <Property Type="String" Name="NomeDaMae" Nullable="false" MaxLength="128" />
+          <Property Type="String" Name="NomeDoPai" Nullable="false" MaxLength="128" />
+          <Property Type="RHModel.Documento" Name="Identificacao" Nullable="false" />
+          <Property Type="RHModel.Contacto" Name="Contacto" Nullable="false" />
+          <Property Type="RHModel.Endereco" Name="Endereco" Nullable="false" />
+          <Property Type="String" Name="CodigoNacionalidade" Nullable="false" MaxLength="32" DefaultValue="024" />
+          <Property Type="String" Name="CodigoNaturalidade" Nullable="false" MaxLength="32" DefaultValue="024-041900" />
+        </ComplexType>
+        <EntityType Name="HabilitacaoLiteraria">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Designacao" Type="String" Nullable="false" MaxLength="128" />
+          <NavigationProperty Name="Funcionarios" Relationship="RHModel.FuncionarioHabilitacaoLiteraria" FromRole="HabilitacaoLiteraria" ToRole="Funcionario" />
+          <NavigationProperty Name="Afectacoes" Relationship="RHModel.AfectacaoDeHabilitacaoLiterariaHabilitacaoLiteraria" FromRole="HabilitacaoLiteraria" ToRole="AfectacaoDeHabilitacaoLiteraria" />
+        </EntityType>
+        <EntityType Name="AfectacaoDeHabilitacaoLiteraria" BaseType="RHModel.AfectacaoSalarial" >
+          <NavigationProperty Name="HabilitacaoLiteraria" Relationship="RHModel.AfectacaoDeHabilitacaoLiterariaHabilitacaoLiteraria" FromRole="AfectacaoDeHabilitacaoLiteraria" ToRole="HabilitacaoLiteraria" />
+          <Property Name="HabilitacaoLiterariaId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EnumType Name="ClaseDeServico" >
+          <Member Name="TEMPO_INTEGRAL" />
+          <Member Name="TEMPO_PARCIAL" />
+        </EnumType>
+        <ComplexType Name="Contrato" >
+          <Property Type="RHModel.TipoDeContrato" Name="Tipo" Nullable="false" />
+          <Property Type="RHModel.ClaseDeServico" Name="ClasseDeServico" Nullable="false" />
+          <Property Type="DateTime" Name="DataInicial" Nullable="false" />
+          <Property Type="DateTime" Name="DataFinal" Nullable="true" />
+          <Property Type="String" Name="Numero" Nullable="false" MaxLength="32" />
+        </ComplexType>
+        <EntityType Name="Direccao" BaseType="RHModel.AreaDeTrabalho">
+          <NavigationProperty Name="Departamentos" Relationship="RHModel.DireccaoDepartamento" FromRole="Direccao" ToRole="Departamento" />
+          <NavigationProperty Name="Direccoes" Relationship="RHModel.DireccaoDireccao" FromRole="Direccao" ToRole="Direccao1" />
+          <NavigationProperty Name="DireccaoSuperior" Relationship="RHModel.DireccaoDireccao" FromRole="Direccao1" ToRole="Direccao" />
+          <Property Name="DireccaoSuperiorId" Type="Int32" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Departamento" BaseType="RHModel.AreaDeTrabalho">
+          <NavigationProperty Name="Direccao" Relationship="RHModel.DireccaoDepartamento" FromRole="Departamento" ToRole="Direccao" />
+          <Property Name="DireccaoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Seccoes" Relationship="RHModel.DepartamentoSeccao" FromRole="Departamento" ToRole="Seccao" />
+        </EntityType>
+        <EntityType Name="Seccao" BaseType="RHModel.AreaDeTrabalho">
+          <NavigationProperty Name="Departamento" Relationship="RHModel.DepartamentoSeccao" FromRole="Seccao" ToRole="Departamento" />
+          <Property Name="DepartamentoId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AreaDeTrabalho" Abstract="true">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" />
+          <Property Name="Codigo" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="128" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="128" />
+          <Property Name="Siglas" Type="String" Nullable="false" MaxLength="16" />
+          <NavigationProperty Name="Funcionarios" Relationship="RHModel.FuncionarioAreaDeTrabalho" FromRole="AreaDeTrabalho" ToRole="Funcionario" />
+        </EntityType>
+        <ComplexType Name="Contacto" >
+          <Property Type="String" Name="Telefone01" Nullable="true" MaxLength="32" />
+          <Property Type="String" Name="Telefone02" Nullable="true" MaxLength="32" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="64" />
+        </ComplexType>
+        <ComplexType Name="Endereco" >
+          <Property Type="String" Name="CodigoDaRegiao" Nullable="false" MaxLength="32" DefaultValue="024-041900" />
+          <Property Type="String" Name="Bloco" Nullable="true" MaxLength="64" />
+          <Property Type="String" Name="Predio" Nullable="true" MaxLength="64" />
+          <Property Type="String" Name="Rua" Nullable="true" MaxLength="64" />
+          <Property Type="String" Name="Andar" Nullable="true" MaxLength="64" />
+          <Property Type="String" Name="Numero" Nullable="true" MaxLength="32" />
+          <Property Type="String" Name="Bairro" Nullable="true" MaxLength="64" />
+        </ComplexType>
+        <Association Name="FuncionarioCargo">
+          <End Type="RHModel.Funcionario" Role="Funcionario" Multiplicity="*" />
+          <End Type="RHModel.Cargo" Role="Cargo" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Cargo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Funcionario">
+              <PropertyRef Name="CargoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FuncionarioCarreira">
+          <End Type="RHModel.Funcionario" Role="Funcionario" Multiplicity="*" />
+          <End Type="RHModel.Carreira" Role="Carreira" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Carreira">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Funcionario">
+              <PropertyRef Name="CarreiraId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FuncionarioHabilitacaoLiteraria">
+          <End Type="RHModel.Funcionario" Role="Funcionario" Multiplicity="*" />
+          <End Type="RHModel.HabilitacaoLiteraria" Role="HabilitacaoLiteraria" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="HabilitacaoLiteraria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Funcionario">
+              <PropertyRef Name="HabilitacaoLiterariaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FuncionarioAreaDeTrabalho">
+          <End Type="RHModel.Funcionario" Role="Funcionario" Multiplicity="*" />
+          <End Type="RHModel.AreaDeTrabalho" Role="AreaDeTrabalho" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="AreaDeTrabalho">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Funcionario">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DireccaoDepartamento">
+          <End Type="RHModel.Direccao" Role="Direccao" Multiplicity="1" />
+          <End Type="RHModel.Departamento" Role="Departamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direccao">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Departamento">
+              <PropertyRef Name="DireccaoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DireccaoDireccao">
+          <End Type="RHModel.Direccao" Role="Direccao" Multiplicity="0..1" />
+          <End Type="RHModel.Direccao" Role="Direccao1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direccao">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Direccao1">
+              <PropertyRef Name="DireccaoSuperiorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DepartamentoSeccao">
+          <End Type="RHModel.Departamento" Role="Departamento" Multiplicity="1" />
+          <End Type="RHModel.Seccao" Role="Seccao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamento">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Seccao">
+              <PropertyRef Name="DepartamentoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="Ficheiro" >
+          <Property Type="String" Name="Nome" Nullable="false" MaxLength="128" DefaultValue="" />
+          <Property Type="String" Name="URI" Nullable="false" DefaultValue="" MaxLength="1024" />
+          <Property Type="String" Name="MimeType" Nullable="false" MaxLength="64" DefaultValue="" />
+        </ComplexType>
+        <EntityType Name="Actividade">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Designacao" Type="String" Nullable="false" MaxLength="128" />
+          <Property Name="Descricao" Type="String" Nullable="false" MaxLength="1024" />
+          <Property Name="DataDeInicio" Type="DateTime" Nullable="false" />
+          <Property Name="DataDeFim" Type="DateTime" Nullable="false" />
+          <Property Name="DiaTudo" Type="Boolean" Nullable="false" />
+          <Property Name="Tipo" Type="String" Nullable="false" />
+          <Property Name="RegraDeRecurrencia" Type="RHModel.RecurrenciaDeActividade" Nullable="false" />
+          <NavigationProperty Name="Funcionarios" Relationship="RHModel.ActividadeFuncionario" FromRole="Actividade" ToRole="Funcionario" />
+          <NavigationProperty Name="Cargos" Relationship="RHModel.ActividadeCargo" FromRole="Actividade" ToRole="Cargo" />
+        </EntityType>
+        <ComplexType Name="RecurrenciaDeActividade" >
+          <Property Type="Int32" Name="Quantidade" Nullable="false" DefaultValue="2147483647" />
+          <Property Type="DateTime" Name="Fim" Nullable="false" />
+          <Property Type="Int64" Name="Duracao" Nullable="false" />
+          <Property Type="Int32" Name="Intervalo" Nullable="false" DefaultValue="1" />
+          <Property Type="DateTime" Name="Inicio" Nullable="true" />
+          <Property Type="Boolean" Name="Activa" Nullable="false" />
+          <Property Type="Boolean" Name="SemDataFinal" Nullable="false" />
+          <Property Type="RHModel.TipoDeRecurrencia" Name="Frequencia" Nullable="false" />
+        </ComplexType>
+        <Association Name="ActividadeFuncionario">
+          <End Type="RHModel.Actividade" Role="Actividade" Multiplicity="*" />
+          <End Type="RHModel.Funcionario" Role="Funcionario" Multiplicity="*" />
+        </Association>
+        <Association Name="ActividadeCargo">
+          <End Type="RHModel.Actividade" Role="Actividade" Multiplicity="*" />
+          <End Type="RHModel.Cargo" Role="Cargo" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Actualizacao">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FuncionarioId" Type="Int32" Nullable="false" />
+          <Property Name="DadosIniciais" Type="RHModel.DadosDeActualizacao" Nullable="false" />
+          <Property Name="DadosFinais" Type="RHModel.DadosDeActualizacao" Nullable="false" />
+          <Property Name="Oservacoes" Type="String" Nullable="false" DefaultValue="" MaxLength="1024" />
+          <NavigationProperty Name="Funcionario" Relationship="RHModel.ActualizacaoFuncionario" FromRole="Actualizacao" ToRole="Funcionario" />
+        </EntityType>
+        <ComplexType Name="DadosDeActualizacao" >
+          <Property Type="Int32" Name="AreaId" Nullable="true" />
+          <Property Type="Int32" Name="CargoId" Nullable="true" />
+          <Property Type="Int32" Name="CarreiraId" Nullable="true" />
+          <Property Type="Int32" Name="HabilitacaoLiterariaId" Nullable="true" />
+        </ComplexType>
+        <Association Name="ActualizacaoFuncionario">
+          <End Type="RHModel.Actualizacao" Role="Actualizacao" Multiplicity="*" />
+          <End Type="RHModel.Funcionario" Role="Funcionario" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Funcionario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Actualizacao">
+              <PropertyRef Name="FuncionarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="RegistoDiario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FuncionarioId" Type="Int32" Nullable="false" />
+          <Property Name="Data" Type="DateTime" Nullable="false" />
+          <Property Name="HoraDeEntrada" Type="DateTime" Nullable="true" />
+          <Property Name="HoraDeSaida" Type="DateTime" Nullable="true" />
+          <NavigationProperty Name="Funcionario" Relationship="RHModel.RegistoDiarioFuncionario" FromRole="RegistoDiario" ToRole="Funcionario" />
+        </EntityType>
+        <Association Name="RegistoDiarioFuncionario">
+          <End Type="RHModel.RegistoDiario" Role="RegistoDiario" Multiplicity="*" />
+          <End Type="RHModel.Funcionario" Role="Funcionario" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Funcionario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RegistoDiario">
+              <PropertyRef Name="FuncionarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Salario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FuncionarioId" Type="Int32" Nullable="false" />
+          <Property Name="VencimentoSalarialId" Type="Int32" Nullable="false" />
+          <Property Name="Valor" Type="String" Nullable="false" MaxLength="256" />
+          <Property Name="Detalhes" Type="String" Nullable="false" DefaultValue="" MaxLength="1024" />
+          <NavigationProperty Name="Vencimento" Relationship="RHModel.VencimentoSalarialSalario" FromRole="Salario" ToRole="VencimentoSalarial" />
+          <NavigationProperty Name="Funcionario" Relationship="RHModel.SalarioFuncionario" FromRole="Salario" ToRole="Funcionario" />
+        </EntityType>
+        <Association Name="AfectacaoDeFuncionarioFuncionario">
+          <End Type="RHModel.AfectacaoDeFuncionario" Role="AfectacaoDeFuncionario" Multiplicity="*" />
+          <End Type="RHModel.Funcionario" Role="Funcionario" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Funcionario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AfectacaoDeFuncionario">
+              <PropertyRef Name="FuncionarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AfectacaoDeCargoCargo">
+          <End Type="RHModel.AfectacaoDeCargo" Role="AfectacaoDeCargo" Multiplicity="*" />
+          <End Type="RHModel.Cargo" Role="Cargo" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Cargo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AfectacaoDeCargo">
+              <PropertyRef Name="CargoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AfectacaoDeCarreiraCarreira">
+          <End Type="RHModel.AfectacaoDeCarreira" Role="AfectacaoDeCarreira" Multiplicity="*" />
+          <End Type="RHModel.Carreira" Role="Carreira" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Carreira">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AfectacaoDeCarreira">
+              <PropertyRef Name="CarreiraId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AfectacaoDeHabilitacaoLiterariaHabilitacaoLiteraria">
+          <End Type="RHModel.AfectacaoDeHabilitacaoLiteraria" Role="AfectacaoDeHabilitacaoLiteraria" Multiplicity="*" />
+          <End Type="RHModel.HabilitacaoLiteraria" Role="HabilitacaoLiteraria" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="HabilitacaoLiteraria">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AfectacaoDeHabilitacaoLiteraria">
+              <PropertyRef Name="HabilitacaoLiterariaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Falta" BaseType="RHModel.AfectacaoDeFuncionario" >
+          <Property Name="Justificada" Type="Boolean" Nullable="false" />
+          <Property Name="Remuneracao" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EnumType Name="TipoDeFalta" />
+        <EntityType Name="VencimentoSalarial">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DataDeCriacao" Type="DateTime" Nullable="false" />
+          <Property Name="PeriodoDeAnalise" Type="RHModel.Periodo" Nullable="false" />
+          <NavigationProperty Name="Salarios" Relationship="RHModel.VencimentoSalarialSalario" FromRole="VencimentoSalarial" ToRole="Salario" />
+        </EntityType>
+        <ComplexType Name="Periodo" >
+          <Property Type="DateTime" Name="Inicio" Nullable="false" />
+          <Property Type="DateTime" Name="Fim" Nullable="false" />
+        </ComplexType>
+        <Association Name="VencimentoSalarialSalario">
+          <End Type="RHModel.VencimentoSalarial" Role="VencimentoSalarial" Multiplicity="1" />
+          <End Type="RHModel.Salario" Role="Salario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VencimentoSalarial">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Salario">
+              <PropertyRef Name="VencimentoSalarialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SalarioFuncionario">
+          <End Type="RHModel.Salario" Role="Salario" Multiplicity="*" />
+          <End Type="RHModel.Funcionario" Role="Funcionario" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Funcionario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Salario">
+              <PropertyRef Name="FuncionarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EnumType Name="TipoDeRecurrencia">
+          <Member Name="Minutely" Value="0" />
+          <Member Name="Hourly" Value="1" />
+          <Member Name="Daily" Value="2" />
+          <Member Name="WeekDays" Value="3" />
+          <Member Name="Weekly" Value="4" />
+          <Member Name="Monthly" Value="5" />
+          <Member Name="MonthlyNth" Value="6" />
+          <Member Name="Yearly" Value="7" />
+          <Member Name="YearlyNth" Value="8" />
+        </EnumType>
+        <EntityType Name="Credencial">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NivelDeAcesso" Type="RHModel.NivelDeCredencial" Nullable="false" />
+          <Property Name="Login" Type="String" Nullable="false" MaxLength="64" />
+          <Property Name="Senha" Type="String" Nullable="false" MaxLength="512" />
+          <Property Name="DataDeValidade" Type="DateTime" Nullable="true" />
+          <Property Name="Estado" Type="RHModel.EstadoDeCredencial" Nullable="false" />
+          <NavigationProperty Name="Funcionario" Relationship="RHModel.CredencialFuncionario" FromRole="Credencial" ToRole="Funcionario" />
+        </EntityType>
+        <EnumType Name="NivelDeCredencial" IsFlags="true">
+          <Member Name="ZERO" Value="0" />
+          <Member Name="BASICO" Value="1" />
+          <Member Name="SUPERIOR" Value="31" />
+          <Member Name="GESTOR" Value="127" />
+          <Member Name="ADMINISTRADOR" Value="511" />
+          <Member Name="ADMINISTRADOR_SUPERIOR" Value="1023" />
+          <Member Name="DEVELOPER" Value="4095" />
+        </EnumType>
+        <EnumType Name="EstadoDeCredencial">
+          <Member Name="ACTIVA" />
+          <Member Name="NAO_ACTIVA" />
+        </EnumType>
+        <Association Name="CredencialFuncionario">
+          <End Type="RHModel.Credencial" Role="Credencial" Multiplicity="0..1" />
+          <End Type="RHModel.Funcionario" Role="Funcionario" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RHModelStoreContainer" CdmEntityContainer="RHModelContainer">
+    <EntitySetMapping Name="Funcionarios">
+      <EntityTypeMapping TypeName="IsTypeOf(RHModel.Funcionario)">
+        <MappingFragment StoreEntitySet="Funcionarios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ComplexProperty Name="Foto" TypeName="RHModel.Ficheiro">
+            <ScalarProperty Name="Nome" ColumnName="Foto_Nome" />
+            <ScalarProperty Name="URI" ColumnName="Foto_URI" />
+            <ScalarProperty Name="MimeType" ColumnName="Foto_MimeType" />
+          </ComplexProperty>
+          <ComplexProperty Name="DadosPessoais" TypeName="RHModel.DadosPessoais">
+            <ScalarProperty Name="DataDeNascimento" ColumnName="DadosPessoais_DataDeNascimento" />
+            <ScalarProperty Name="EstadoCivil" ColumnName="DadosPessoais_EstadoCivil" />
+            <ScalarProperty Name="Genero" ColumnName="DadosPessoais_Genero" />
+            <ScalarProperty Name="Nome" ColumnName="DadosPessoais_Nome" />
+            <ScalarProperty Name="NomeDaMae" ColumnName="DadosPessoais_NomeDaMae" />
+            <ScalarProperty Name="NomeDoPai" ColumnName="DadosPessoais_NomeDoPai" />
+            <ComplexProperty Name="Identificacao" TypeName="RHModel.Documento">
+              <ScalarProperty Name="Tipo" ColumnName="DadosPessoais_Identificacao_Tipo" />
+              <ScalarProperty Name="DataDeEmissao" ColumnName="DadosPessoais_Identificacao_DataDeEmissao" />
+              <ScalarProperty Name="ValidoAte" ColumnName="DadosPessoais_Identificacao_ValidoAte" />
+              <ScalarProperty Name="Numero" ColumnName="DadosPessoais_Identificacao_Numero" />
+              <ScalarProperty Name="EmitidoEm" ColumnName="DadosPessoais_Identificacao_EmitidoEm" />
+              <ScalarProperty Name="URI" ColumnName="DadosPessoais_Identificacao_URI" />
+              <ScalarProperty Name="Observacoes" ColumnName="DadosPessoais_Identificacao_Observacoes" />
+            </ComplexProperty>
+            <ComplexProperty Name="Contacto" TypeName="RHModel.Contacto">
+              <ScalarProperty Name="Telefone01" ColumnName="DadosPessoais_Contacto_Telefone01" />
+              <ScalarProperty Name="Telefone02" ColumnName="DadosPessoais_Contacto_Telefone02" />
+              <ScalarProperty Name="Email" ColumnName="DadosPessoais_Contacto_Email" />
+            </ComplexProperty>
+            <ComplexProperty Name="Endereco" TypeName="RHModel.Endereco">
+              <ScalarProperty Name="CodigoDaRegiao" ColumnName="DadosPessoais_Endereco_CodigoDaRegiao" />
+              <ScalarProperty Name="Bloco" ColumnName="DadosPessoais_Endereco_Bloco" />
+              <ScalarProperty Name="Predio" ColumnName="DadosPessoais_Endereco_Predio" />
+              <ScalarProperty Name="Rua" ColumnName="DadosPessoais_Endereco_Rua" />
+              <ScalarProperty Name="Andar" ColumnName="DadosPessoais_Endereco_Andar" />
+              <ScalarProperty Name="Numero" ColumnName="DadosPessoais_Endereco_Numero" />
+              <ScalarProperty Name="Bairro" ColumnName="DadosPessoais_Endereco_Bairro" />
+            </ComplexProperty>
+            <ScalarProperty Name="CodigoNacionalidade" ColumnName="DadosPessoais_CodigoNacionalidade" />
+            <ScalarProperty Name="CodigoNaturalidade" ColumnName="DadosPessoais_CodigoNaturalidade" />
+          </ComplexProperty>
+          <ComplexProperty Name="Contrato" TypeName="RHModel.Contrato">
+            <ScalarProperty Name="Tipo" ColumnName="Contrato_Tipo" />
+            <ScalarProperty Name="ClasseDeServico" ColumnName="Contrato_ClasseDeServico" />
+            <ScalarProperty Name="DataInicial" ColumnName="Contrato_DataInicial" />
+            <ScalarProperty Name="DataFinal" ColumnName="Contrato_DataFinal" />
+            <ScalarProperty Name="Numero" ColumnName="Contrato_Numero" />
+          </ComplexProperty>
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+          <ScalarProperty Name="CargoId" ColumnName="CargoId" />
+          <ScalarProperty Name="CarreiraId" ColumnName="CarreiraId" />
+          <ScalarProperty Name="HabilitacaoLiterariaId" ColumnName="HabilitacaoLiterariaId" />
+          <ScalarProperty Name="Funcao" ColumnName="Funcao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ValoresDosIndice">
+      <EntityTypeMapping TypeName="IsTypeOf(RHModel.ValorDoIndice)">
+        <MappingFragment StoreEntitySet="ValoresDosIndice">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Designacao" ColumnName="Designacao" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cargos">
+      <EntityTypeMapping TypeName="IsTypeOf(RHModel.Cargo)">
+        <MappingFragment StoreEntitySet="Cargos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Designacao" ColumnName="Designacao" />
+          <ScalarProperty Name="EsturcturaCargo" ColumnName="EsturcturaCargo" />
+          <ScalarProperty Name="Indice" ColumnName="Indice" />
+          <ScalarProperty Name="ValorDoIndiceId" ColumnName="ValorDoIndiceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Carreiras">
+      <EntityTypeMapping TypeName="IsTypeOf(RHModel.Carreira)">
+        <MappingFragment StoreEntitySet="Carreiras">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GrupoDePessoal" ColumnName="GrupoDePessoal" />
+          <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+          <ScalarProperty Name="Indice" ColumnName="Indice" />
+          <ScalarProperty Name="ValorDoIndiceId" ColumnName="ValorDoIndiceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AfectacoesSalariais">
+      <EntityTypeMapping TypeName="IsTypeOf(RHModel.AfectacaoSalarial)">
+        <MappingFragment StoreEntitySet="AfectacoesSalariais">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Designacao" ColumnName="Designacao" />
+          <ScalarProperty Name="DataInicial" ColumnName="DataInicial" />
+          <ScalarProperty Name="DataFinal" ColumnName="DataFinal" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(RHModel.AfectacaoDeFuncionario)">
+        <MappingFragment StoreEntitySet="AfectacoesSalariais_AfectacaoDeFuncionario">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FuncionarioId" ColumnName="FuncionarioId" />
+          <ScalarProperty Name="Manual" ColumnName="Manual" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(RHModel.AfectacaoDeCargo)">
+        <MappingFragment StoreEntitySet="AfectacoesSalariais_AfectacaoDeCargo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CargoId" ColumnName="CargoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(RHModel.AfectacaoDeCarreira)">
+        <MappingFragment StoreEntitySet="AfectacoesSalariais_AfectacaoDeCarreira">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CarreiraId" ColumnName="CarreiraId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(RHModel.AfectacaoDeHabilitacaoLiteraria)">
+        <MappingFragment StoreEntitySet="AfectacoesSalariais_AfectacaoDeHabilitacaoLiteraria">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HabilitacaoLiterariaId" ColumnName="HabilitacaoLiterariaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(RHModel.Falta)">
+        <MappingFragment StoreEntitySet="AfectacoesSalariais_Falta">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Justificada" ColumnName="Justificada" />
+          <ScalarProperty Name="Remuneracao" ColumnName="Remuneracao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Paises">
+      <EntityTypeMapping TypeName="IsTypeOf(RHModel.Pais)">
+        <MappingFragment StoreEntitySet="Paises">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comunas">
+      <EntityTypeMapping TypeName="IsTypeOf(RHModel.Comuna)">
+        <MappingFragment StoreEntitySet="Comunas">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="MunicipioCodigo" ColumnName="MunicipioCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Municipios">
+      <EntityTypeMapping TypeName="IsTypeOf(RHModel.Municipio)">
+        <MappingFragment StoreEntitySet="Municipios">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="ProvinciaCodigo" ColumnName="ProvinciaCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Provincias">
+      <EntityTypeMapping TypeName="IsTypeOf(RHModel.Provincia)">
+        <MappingFragment StoreEntitySet="Provincias">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="PaisCodigo" ColumnName="PaisCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HabilitacoesLiterarias">
+      <EntityTypeMapping TypeName="IsTypeOf(RHModel.HabilitacaoLiteraria)">
+        <MappingFragment StoreEntitySet="HabilitacoesLiterarias">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Designacao" ColumnName="Designacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AreasDeTrabalho">
+      <EntityTypeMapping TypeName="IsTypeOf(RHModel.AreaDeTrabalho)">
+        <MappingFragment StoreEntitySet="AreasDeTrabalho">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Siglas" ColumnName="Siglas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(RHModel.Direccao)">
+        <MappingFragment StoreEntitySet="AreasDeTrabalho_Direccao">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DireccaoSuperiorId" ColumnName="DireccaoSuperiorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(RHModel.Departamento)">
+        <MappingFragment StoreEntitySet="AreasDeTrabalho_Departamento">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DireccaoId" ColumnName="DireccaoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(RHModel.Seccao)">
+        <MappingFragment StoreEntitySet="AreasDeTrabalho_Seccao">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DepartamentoId" ColumnName="DepartamentoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Actividades">
+      <EntityTypeMapping TypeName="IsTypeOf(RHModel.Actividade)">
+        <MappingFragment StoreEntitySet="Actividades">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Designacao" ColumnName="Designacao" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="DataDeInicio" ColumnName="DataDeInicio" />
+          <ScalarProperty Name="DataDeFim" ColumnName="DataDeFim" />
+          <ScalarProperty Name="DiaTudo" ColumnName="DiaTudo" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ComplexProperty Name="RegraDeRecurrencia" TypeName="RHModel.RecurrenciaDeActividade">
+            <ScalarProperty Name="Quantidade" ColumnName="RegraDeRecurrencia_Quantidade" />
+            <ScalarProperty Name="Fim" ColumnName="RegraDeRecurrencia_Fim" />
+            <ScalarProperty Name="Duracao" ColumnName="RegraDeRecurrencia_Duracao" />
+            <ScalarProperty Name="Intervalo" ColumnName="RegraDeRecurrencia_Intervalo" />
+            <ScalarProperty Name="Inicio" ColumnName="RegraDeRecurrencia_Inicio" />
+            <ScalarProperty Name="Activa" ColumnName="RegraDeRecurrencia_Activa" />
+            <ScalarProperty Name="SemDataFinal" ColumnName="RegraDeRecurrencia_SemDataFinal" />
+            <ScalarProperty Name="Frequencia" ColumnName="RegraDeRecurrencia_Frequencia" />
+          </ComplexProperty>
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Actualizacoes">
+      <EntityTypeMapping TypeName="IsTypeOf(RHModel.Actualizacao)">
+        <MappingFragment StoreEntitySet="Actualizacoes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FuncionarioId" ColumnName="FuncionarioId" />
+          <ComplexProperty Name="DadosIniciais" TypeName="RHModel.DadosDeActualizacao">
+            <ScalarProperty Name="AreaId" ColumnName="DadosIniciais_AreaId" />
+            <ScalarProperty Name="CargoId" ColumnName="DadosIniciais_CargoId" />
+            <ScalarProperty Name="CarreiraId" ColumnName="DadosIniciais_CarreiraId" />
+            <ScalarProperty Name="HabilitacaoLiterariaId" ColumnName="DadosIniciais_HabilitacaoLiterariaId" />
+          </ComplexProperty>
+          <ComplexProperty Name="DadosFinais" TypeName="RHModel.DadosDeActualizacao">
+            <ScalarProperty Name="AreaId" ColumnName="DadosFinais_AreaId" />
+            <ScalarProperty Name="CargoId" ColumnName="DadosFinais_CargoId" />
+            <ScalarProperty Name="CarreiraId" ColumnName="DadosFinais_CarreiraId" />
+            <ScalarProperty Name="HabilitacaoLiterariaId" ColumnName="DadosFinais_HabilitacaoLiterariaId" />
+          </ComplexProperty>
+          <ScalarProperty Name="Oservacoes" ColumnName="Oservacoes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegistosDiarios">
+      <EntityTypeMapping TypeName="IsTypeOf(RHModel.RegistoDiario)">
+        <MappingFragment StoreEntitySet="RegistosDiarios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FuncionarioId" ColumnName="FuncionarioId" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="HoraDeEntrada" ColumnName="HoraDeEntrada" />
+          <ScalarProperty Name="HoraDeSaida" ColumnName="HoraDeSaida" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salarios">
+      <EntityTypeMapping TypeName="IsTypeOf(RHModel.Salario)">
+        <MappingFragment StoreEntitySet="Salarios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FuncionarioId" ColumnName="FuncionarioId" />
+          <ScalarProperty Name="VencimentoSalarialId" ColumnName="VencimentoSalarialId" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Detalhes" ColumnName="Detalhes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VencimentosSalariais">
+      <EntityTypeMapping TypeName="IsTypeOf(RHModel.VencimentoSalarial)">
+        <MappingFragment StoreEntitySet="VencimentosSalariais">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DataDeCriacao" ColumnName="DataDeCriacao" />
+          <ComplexProperty Name="PeriodoDeAnalise" TypeName="RHModel.Periodo">
+            <ScalarProperty Name="Inicio" ColumnName="PeriodoDeAnalise_Inicio" />
+            <ScalarProperty Name="Fim" ColumnName="PeriodoDeAnalise_Fim" />
+          </ComplexProperty>
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Credenciais">
+      <EntityTypeMapping TypeName="IsTypeOf(RHModel.Credencial)">
+        <MappingFragment StoreEntitySet="Credenciais">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NivelDeAcesso" ColumnName="NivelDeAcesso" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+          <ScalarProperty Name="DataDeValidade" ColumnName="DataDeValidade" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ActividadeFuncionario" TypeName="RHModel.ActividadeFuncionario" StoreEntitySet="ActividadeFuncionario">
+      <EndProperty Name="Actividade">
+        <ScalarProperty Name="Id" ColumnName="Actividades_Id" />
+      </EndProperty>
+      <EndProperty Name="Funcionario">
+        <ScalarProperty Name="Id" ColumnName="Funcionarios_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ActividadeCargo" TypeName="RHModel.ActividadeCargo" StoreEntitySet="ActividadeCargo">
+      <EndProperty Name="Actividade">
+        <ScalarProperty Name="Id" ColumnName="Actividades_Id" />
+      </EndProperty>
+      <EndProperty Name="Cargo">
+        <ScalarProperty Name="Id" ColumnName="Cargos_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CredencialFuncionario" TypeName="RHModel.CredencialFuncionario" StoreEntitySet="Credenciais">
+      <EndProperty Name="Funcionario">
+        <ScalarProperty Name="Id" ColumnName="Funcionario_Id" />
+      </EndProperty>
+      <EndProperty Name="Credencial">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="DefaultDatabaseSchema" Value="grh" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

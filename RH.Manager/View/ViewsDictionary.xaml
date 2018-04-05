@@ -1,0 +1,49 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                    xmlns:models="clr-namespace:RH.DataModel;assembly=RH.DataModel"
+                    xmlns:controls="clr-namespace:RH.Manager.CustomControls"
+                    xmlns:viewmodel="clr-namespace:RH.Manager.ViewModel"
+                    xmlns:view="clr-namespace:RH.Manager.View">
+    <!--#region LOGIN TEMPLATE-->
+    <DataTemplate DataType="{x:Type viewmodel:LoginViewModel}">
+        <view:LoginView/>
+    </DataTemplate>
+    <!--#endregion-->
+
+    <!--#region OPEN SESSION TEMPLATE-->
+    <DataTemplate DataType="{x:Type viewmodel:OpenSessionViewModel}">
+        <view:OpenSessionView/>
+    </DataTemplate>
+    <!--#endregion-->
+
+    <!--#region DASHBOARD TEMPLATE-->
+    <DataTemplate DataType="{x:Type viewmodel:DashBoardViewModel}">
+        <view:DashBoardView/>
+    </DataTemplate>
+    <!--#endregion-->
+
+    <!--#region FUNCINARIOS TEMPLATE-->
+    <DataTemplate DataType="{x:Type viewmodel:FuncionariosViewModel}">
+        <view:FuncionariosView/>
+    </DataTemplate>
+    <!--#endregion-->
+
+    <!--#region ORGANIGRAMA TEMPLATE-->
+    <DataTemplate DataType="{x:Type viewmodel:OrgChartViewModel}">
+        <controls:OrgChart/>
+    </DataTemplate>
+    <!--#endregion-->
+
+    <!--#region ACTIVIDADES TEMPLATE-->
+    <DataTemplate DataType="{x:Type viewmodel:ActividadesViewModel}">
+        <view:ActividadesView/>
+    </DataTemplate>
+    <!--#endregion-->
+
+    <!--#region SALARIOS TEMPLATE-->
+    <DataTemplate DataType="{x:Type viewmodel:SalariosViewModel}">
+        <view:SalariosView/>
+    </DataTemplate>
+    <!--#endregion-->
+</ResourceDictionary>
